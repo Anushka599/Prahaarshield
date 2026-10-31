@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PrahaarChat · PrahaarShield</title>
+<style>
+:root{--bg:#0b141a;--panel:#111b21;--head:#202c33;--in:#202c33;--out:#005c4b;--txt:#e9edef;--muted:#8696a0;--accent:#00a884;
+--l1:#8696a0;--l2:#f5c518;--l3:#ff8c1a;--l4:#ff3b30}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--txt);font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+body{max-width:520px;margin:0 auto;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+header{background:var(--head);display:flex;align-items:center;gap:10px;padding:12px 12px;position:sticky;top:0;z-index:5}
+header h1{font-size:19px;font-weight:600;flex:1}
+.icon{background:none;border:0;color:var(--txt);font-size:22px;padding:4px 8px;cursor:pointer}
+.sos{background:var(--l4);color:#fff;border:0;border-radius:16px;padding:6px 12px;font-weight:700;font-size:14px;cursor:pointer}
+#list{flex:1;overflow-y:auto}
+.item{display:flex;gap:12px;padding:12px 14px;border-bottom:1px solid #1f2c34;cursor:pointer;align-items:center}
+.av{width:46px;height:46px;border-radius:50%;background:#2a3942;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.mid{flex:1;min-width:0}.name{font-size:16px;display:flex;gap:6px;align-items:center}
+.last{color:var(--muted);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+.time{color:var(--muted);font-size:12px}
+.shield{font-size:12px;font-weight:700;border-radius:10px;padding:2px 8px;color:#111}
+.s1{background:var(--l1)}.s2{background:var(--l2)}.s3{background:var(--l3)}.s4{background:var(--l4);color:#fff}
+.checked{color:var(--accent);font-size:12px}
+#chat{display:none;flex:1;flex-direction:column;min-height:0}
+.sub{font-size:12px;color:var(--muted)}
+.banner{padding:10px 14px;font-size:14px;font-weight:600;cursor:pointer;color:#111}
+.banner.b4{color:#fff;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.75}}
+#msgs{flex:1;overflow-y:auto;padding:12px 10px;display:flex;flex-direction:column;gap:6px;
+background-image:radial-gradient(#ffffff08 1px,transparent 1px);background-size:18px 18px}
+.bub{max-width:82%;padding:7px 10px 18px;border-radius:8px;font-size:15px;line-height:1.35;position:relative;white-space:pre-wrap;word-wrap:break-word}
+.in{background:var(--in);align-self:flex-start}.out{background:var(--out);align-self:flex-end}
+.bub .t{position:absolute;right:8px;bottom:3px;font-size:11px;color:var(--muted)}
+.flag{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;border-radius:8px;padding:2px 7px;color:#111;cursor:pointer}
+.composer{display:flex;gap:8px;padding:8px;background:var(--panel)}
+.composer input{flex:1;background:#2a3942;border:0;border-radius:20px;padding:11px 14px;color:var(--txt);font-size:15px}
+.composer button{background:var(--accent);border:0;border-radius:50%;width:44px;height:44px;color:#fff;font-size:18px}
+.menu{position:absolute;right:8px;top:54px;background:#233138;border-radius:8px;box-shadow:0 6px 20px #0008;z-index:20;display:none;min-width:230px}
+.menu div{padding:13px 16px;cursor:pointer;font-size:15px}.menu div:hover{background:#2c3e47}
+.modal{position:fixed;inset:0;background:#000a;display:none;align-items:flex-end;justify-content:center;z-index:30}
+.sheet{background:var(--panel);width:100%;max-width:520px;max-height:88vh;overflow-y:auto;border-radius:16px 16px 0 0;padding:18px 16px 24px}
+.sheet h2{font-size:18px;margin-bottom:8px}.sheet h3{font-size:14px;color:var(--muted);margin:14px 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.sheet p,.sheet li{font-size:15px;line-height:1.45}.sheet ul{padding-left:20px}
+.lvl{display:inline-block;border-radius:10px;padding:3px 10px;font-weight:700;color:#111;margin-bottom:8px}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.acts a,.acts button{background:#2a3942;color:var(--txt);border:0;border-radius:18px;padding:9px 13px;font-size:14px;text-decoration:none;cursor:pointer}
+.acts .red{background:var(--l4);color:#fff}
+.tl{border-left:3px solid var(--l3);padding:4px 0 4px 10px;margin:6px 0}
+#critical{position:fixed;inset:0;background:#b3140cf2;display:none;flex-direction:column;justify-content:center;padding:28px;z-index:40;text-align:center}
+#critical h2{font-size:26px;margin-bottom:12px}#critical p{font-size:16px;margin-bottom:10px}
+#toast{position:fixed;left:50%;transform:translateX(-50%);top:70px;background:#233138;padding:12px 16px;border-radius:10px;display:none;z-index:35;font-size:14px;max-width:90%;box-shadow:0 6px 20px #0008;cursor:pointer}
+.empty{color:var(--muted);text-align:center;padding:40px}
+.spin{color:var(--muted);font-size:13px;padding:8px 14px}
+</style>
+</head>
+<body>
+<!-- ======== CHAT LIST ======== -->
+<header id="hList">
+  <h1>PrahaarChat</h1>
+  <span id="guardBadge" class="sub">🛡 Live guard ON</span>
+  <button class="icon" onclick="toggleMenu('menuList')">⋮</button>
+  <div class="menu" id="menuList">
+    <div onclick="checkAll()">🛡 PrahaarShield: Check all chats</div>
+    <div onclick="toggleGuard()" id="mGuard">Live guard: ON</div>
+    <div onclick="toggleLang()" id="mLang">Language: English</div>
+    <div onclick="resetDemo()">↺ Reset demo</div>
+  </div>
+</header>
+<div id="list"></div>
+
+<!-- ======== CHAT VIEW ======== -->
+<div id="chat">
+  <header>
+    <button class="icon" onclick="showList()">←</button>
+    <div class="av" id="cAv" style="width:38px;height:38px;font-size:16px"></div>
+    <div style="flex:1;min-width:0"><div id="cName" class="name"></div><div id="cSub" class="sub"></div></div>
+    <button class="sos" onclick="sos()">🆘 SOS</button>
+    <button class="icon" onclick="toggleMenu('menuChat')">⋮</button>
+    <div class="menu" id="menuChat">
+      <div onclick="checkChat()">🛡 PrahaarShield: Check this chat</div>
+      <div onclick="notScam()">✓ This is not a scam</div>
+      <div onclick="evidence()">📄 Create evidence pack</div>
+    </div>
+  </header>
+  <div id="banner" class="banner" style="display:none" onclick="sos()"></div>
+  <div id="msgs"></div>
+  <div class="composer"><input id="inp" placeholder="Message" onkeydown="if(event.key==='Enter')send()"><button onclick="send()">➤</button></div>
+</div>
+
+<div class="modal" id="modal" onclick="if(event.target.id==='modal')closeModal()"><div class="sheet" id="sheet"></div></div>
+<div id="critical"></div>
+<div id="toast"></div>
+
+<script>
+const COL={0:'#00a884',1:'#8696a0',2:'#f5c518',3:'#ff8c1a',4:'#ff3b30'};
+const TYPE={digital_arrest:'Digital arrest',kyc_bank:'Bank / KYC',boss_impersonation:'Boss impersonation',investment_group:'Investment',job_task:'Job / task',loan_app:'Loan app'};
+const TYPE_HI={digital_arrest:'डिजिटल अरेस्ट',kyc_bank:'बैंक / KYC',boss_impersonation:'बॉस बनकर धोखा',investment_group:'निवेश',job_task:'नौकरी / टास्क',loan_app:'लोन ऐप'};
+const T={en:{flag:{2:'Suspicious',3:'Dangerous',4:'Critical'},banner:(l,t)=>l>=4?`🔴 Scam in progress: likely ${t} scam. Tap for help`:l>=3?`🟠 Dangerous: likely ${t} scam. Tap to see why`:`🟡 Suspicious messages in this chat. Tap to see why`,
+  checked:'✓ checked',why:'Why this message is risky',what:'What is happening',flags:'Red flags',todo:'What to do now',stages:'Where you are in the scam',next:'What usually comes next',safe:'No strong scam signs.'},
+ hi:{flag:{2:'संदिग्ध',3:'ख़तरनाक',4:'गंभीर'},banner:(l,t)=>l>=4?`🔴 स्कैम चल रहा है: शायद ${t} स्कैम। मदद के लिए टैप करें`:l>=3?`🟠 ख़तरनाक: शायद ${t} स्कैम। कारण देखें`:`🟡 इस चैट में संदिग्ध संदेश हैं। कारण देखें`,
+  checked:'✓ जाँचा गया',why:'यह संदेश ख़तरनाक क्यों है',what:'क्या हो रहा है',flags:'ख़तरे के संकेत',todo:'अभी क्या करें',stages:'स्कैम किस चरण में है',next:'आगे आमतौर पर क्या होता है',safe:'स्कैम के मज़बूत लक्षण नहीं।'}};
+let S={settings:{live_guard:true,lang:'en'},chats:[]}, cur=null, curMsgs=[], lang='en';
+const L=()=>T[lang]; const tname=t=>t?((lang==='hi'?TYPE_HI:TYPE)[t]||t):(lang==='hi'?'अज्ञात':'unknown');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function api(path,method='GET',body){const r=await fetch(path,{method,headers:{'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
+  if(!r.ok)throw new Error(await r.text()); const ct=r.headers.get('content-type')||''; return ct.includes('json')?r.json():r.text();}
+function toggleMenu(id){const m=document.getElementById(id);m.style.display=m.style.display==='block'?'none':'block';}
+document.addEventListener('click',e=>{if(!e.target.closest('.menu')&&!e.target.classList.contains('icon'))document.querySelectorAll('.menu').forEach(m=>m.style.display='none');});
+
+async function loadState(){S=await api('/api/state');lang=S.settings.lang||'en';renderSettings();renderList();}
+function renderSettings(){const g=S.settings.live_guard;document.getElementById('guardBadge').textContent=g?'🛡 Live guard ON':'🛡 Live guard OFF';
+  document.getElementById('mGuard').textContent='Live guard: '+(g?'ON':'OFF');document.getElementById('mLang').textContent='Language: '+(lang==='hi'?'हिंदी':'English');}
+function badge(c){if(c.level>=2&&!c.muted)return `<span class="shield s${c.level}">🛡 ${L().flag[c.level]}</span>`;return c.checked?`<span class="checked">${L().checked}</span>`:'';}
+function renderList(){const el=document.getElementById('list');
+  if(!S.chats.length){el.innerHTML='<div class="empty">No chats</div>';return;}
+  el.innerHTML=S.chats.map(c=>`<div class="item" onclick="openChat('${c.id}')"><div class="av">${c.is_group?'👥':esc((c.name||'?').trim()[0])}</div>
+   <div class="mid"><div class="name">${esc(c.name)} ${badge(c)}</div><div class="last">${esc(c.last)}</div></div><div class="time">${esc(c.time)}</div></div>`).join('');}
+function showList(){cur=null;document.getElementById('chat').style.display='none';document.getElementById('list').style.display='block';document.getElementById('hList').style.display='flex';loadState();}
+
+async function openChat(id){cur=id;document.getElementById('list').style.display='none';document.getElementById('hList').style.display='none';
+  document.getElementById('chat').style.display='flex';await loadChat(true);}
+async function loadChat(scroll){if(!cur)return;const d=await api(`/api/chat/${cur}?lang=${lang}`);const c=d.chat;curMsgs=d.messages;
+  document.getElementById('cName').innerHTML=esc(c.name);document.getElementById('cAv').textContent=c.is_group?'👥':(c.name||'?').trim()[0];
+  document.getElementById('cSub').textContent=(c.number||'')+(c.saved?'':'  ·  not in contacts');
+  const b=document.getElementById('banner');
+  if(c.level>=2&&!c.muted){b.style.display='block';b.style.background=COL[c.level];b.className='banner'+(c.level>=4?' b4':'');b.textContent=L().banner(c.level,tname(c.scam_type));}
+  else b.style.display='none';
+  const m=document.getElementById('msgs');
+  m.innerHTML=curMsgs.map((x,i)=>`<div class="bub ${x.direction}">${esc(x.text)}${x.level>=2?`<br><span class="flag" style="background:${COL[x.level]}" onclick="explain(${i})">⚠ ${L().flag[x.level]} – ${lang==='hi'?'कारण':'why?'}</span>`:''}<span class="t">${esc(x.time)}</span></div>`).join('');
+  if(scroll)m.scrollTop=m.scrollHeight;}
+async function send(){const i=document.getElementById('inp');const t=i.value.trim();if(!t||!cur)return;i.value='';await api('/api/message','POST',{chat_id:cur,direction:'out',text:t});}
+
+function openModal(html){document.getElementById('sheet').innerHTML=html;document.getElementById('modal').style.display='flex';}
+function closeModal(){document.getElementById('modal').style.display='none';}
+function explain(i){const e=curMsgs[i].explain;openModal(`<h2>${L().why}</h2><span class="lvl" style="background:${COL[e.level]}">${e.label}</span>
+  <p>${esc(e.what)}</p>${e.red_flags.length?`<h3>${L().flags}</h3><ul>${e.red_flags.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}
+  <p class="sub" style="margin-top:12px">Scam score ${(e.score*100).toFixed(0)}%${e.scam_type?' · '+esc(tname(e.scam_type)):''}</p>
+  <div class="acts"><button onclick="sos()">🆘 Full SOS check</button><button onclick="closeModal()">Close</button></div>`);}
+function actionsHTML(){return `<div class="acts"><a class="red" href="tel:1930">📞 Call 1930</a><a href="https://cybercrime.gov.in" target="_blank">🌐 cybercrime.gov.in</a>
+  <a href="https://sancharsaathi.gov.in" target="_blank">📵 Report (Chakshu)</a><button onclick="evidence()">📄 Evidence pack</button>
+  <button onclick="notScam()">✓ Not a scam</button><button onclick="closeModal()">Close</button></div>`;}
+async function sos(){if(!cur)return;openModal('<div class="spin">🛡 Checking the whole conversation…</div>');
+  const r=await api(`/api/chat/${cur}/sos?lang=${lang}`,'POST');await loadChat(false);
+  openModal(`<h2>🆘 SOS</h2><span class="lvl" style="background:${COL[r.level]}">${esc(r.label)}${r.scam_type&&r.level>=2?' · '+esc(tname(r.scam_type)):''}</span>
+   <h3>${L().what}</h3><p>${esc(r.what)}</p>
+   ${r.timeline.length?`<h3>${L().stages}</h3>`+r.timeline.map(s=>`<div class="tl"><b>${esc(s.name)}</b><br><span class="sub">“${esc(s.text)}”</span></div>`).join(''):''}
+   ${r.next_step?`<h3>${L().next}</h3><p>${esc(r.next_step)}</p>`:''}
+   ${r.red_flags.length?`<h3>${L().flags}</h3><ul>${r.red_flags.map(f=>`<li>${esc(f.text)}</li>`).join('')}</ul>`:''}
+   <h3>${L().todo}</h3><ul>${r.actions.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>${actionsHTML()}`);}
+async function checkChat(){if(!cur)return;document.getElementById('msgs').insertAdjacentHTML('afterbegin','<div class="spin">🛡 Checking this chat…</div>');
+  await api(`/api/chat/${cur}/check?lang=${lang}`,'POST');await loadChat(false);}
+async function checkAll(){openModal('<div class="spin">🛡 Checking all chats…</div>');const r=await api('/api/check_all','POST');await loadState();
+  openModal(`<h2>🛡 Scan complete</h2><p>Checked <b>${r.checked}</b> chats · <b>${r.flagged}</b> flagged · <b>${r.critical}</b> critical</p>
+   ${r.chats.length?'<h3>Flagged</h3><ul>'+r.chats.map(c=>`<li><a href="#" style="color:${COL[c.level]}" onclick="closeModal();openChat('${c.id}');return false">${esc(c.name)} – ${esc(c.label)} (${esc(tname(c.scam_type))})</a></li>`).join('')+'</ul>':''}
+   <div class="acts"><button onclick="closeModal()">OK</button></div>`);}
+async function notScam(){if(!cur)return;await api(`/api/chat/${cur}/not_scam`,'POST');closeModal();await loadChat(false);}
+async function evidence(){if(!cur)return;const t=await api(`/api/chat/${cur}/evidence`);
+  openModal(`<h2>📄 Evidence pack</h2><p class="sub">Copy this into your complaint on 1930 / cybercrime.gov.in</p>
+   <pre style="white-space:pre-wrap;background:#0b141a;padding:10px;border-radius:8px;margin-top:10px;font-size:13px">${esc(t)}</pre>
+   <div class="acts"><button onclick="copyEv()">Copy</button><button onclick="closeModal()">Close</button></div>`);window._ev=t;}
+function copyEv(){const t=window._ev||'';if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t);return;}
+  const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}a.remove();}
+async function toggleGuard(){await api('/api/settings','POST',{live_guard:!S.settings.live_guard});await loadState();}
+async function toggleLang(){await api('/api/settings','POST',{lang:lang==='en'?'hi':'en'});await loadState();if(cur)await loadChat(false);}
+async function resetDemo(){await api('/api/reset_demo','POST');showList();}
+
+function critical(a){const el=document.getElementById('critical');const hi=lang==='hi';
+  el.innerHTML=`<h2>🚨 ${hi?'रुकिए! यह स्कैम हो सकता है':'STOP! This looks like a scam in progress'}</h2>
+   <p>“${esc(a.text)}”</p><p>${hi?'पैसे न भेजें, OTP/PIN न बताएँ, वीडियो कॉल काट दें।':'Do not pay. Do not share OTP/PIN. Disconnect any video call.'}</p>
+   <div class="acts" style="justify-content:center"><a class="red" href="tel:1930" style="background:#fff;color:#b3140c">📞 1930</a>
+   <button onclick="document.getElementById('critical').style.display='none';openChat('${a.chat_id}').then(sos)">${hi?'कारण देखें':'See why'}</button>
+   <button onclick="document.getElementById('critical').style.display='none'">${hi?'बंद करें':'Dismiss'}</button></div>`;el.style.display='flex';}
+function toast(a){const t=document.getElementById('toast');t.style.borderLeft='5px solid '+COL[a.level];
+  t.textContent=`🛡 ${a.label}: new message in ${(S.chats.find(c=>c.id===a.chat_id)||{name:'a chat'}).name}`;t.onclick=()=>{t.style.display='none';openChat(a.chat_id);};
+  t.style.display='block';setTimeout(()=>t.style.display='none',6000);}
+
+function connect(){const ws=new WebSocket((location.protocol==='https:'?'wss://':'ws://')+location.host+'/ws');
+  ws.onmessage=async ev=>{const d=JSON.parse(ev.data);
+    if(d.type==='settings'){await loadState();if(cur)await loadChat(false);return;}
+    await loadState();if(cur&&(d.chat_id===null||d.chat_id===cur))await loadChat(true);
+    if(d.alert){if(d.alert.level>=4)critical(d.alert);else if(d.alert.chat_id!==cur)toast(d.alert);}};
+  ws.onclose=()=>setTimeout(connect,1500);}
+loadState();connect();
+</script>
+</body>
+</html>

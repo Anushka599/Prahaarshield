@@ -1,0 +1,267 @@
+{
+ "chats": [
+  {
+   "id": "mummy",
+   "name": "Mummy ❤️",
+   "number": "+91 98220 11111",
+   "saved": true,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "Beta khana kha liya? 🍲"
+    },
+    {
+     "direction": "out",
+     "text": "Haan mummy, abhi khaya"
+    },
+    {
+     "direction": "in",
+     "text": "Kal ki college fees ₹18,500 bhej di hai tere account me, receipt bhej dena 🙏"
+    },
+    {
+     "direction": "out",
+     "text": "Thank you mummy ❤️"
+    },
+    {
+     "direction": "in",
+     "text": "Aur sun, kisi ka bhi call aaye OTP maangne ke liye toh mat batana, bank kabhi nahi maangta 🙏"
+    }
+   ]
+  },
+  {
+   "id": "college",
+   "name": "CSE 2027 Group 🎓",
+   "is_group": true,
+   "saved": true,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "Guys DBMS assignment kal 11:59 PM tak submit karna hai portal pe, late submission accept nahi hoga ⚠️"
+    },
+    {
+     "direction": "in",
+     "text": "Exam form fees ₹1,200 last date Friday, college portal pe hi pay karna"
+    },
+    {
+     "direction": "out",
+     "text": "Thanks for the reminder 👍"
+    },
+    {
+     "direction": "in",
+     "text": "Mini project review Monday 10 AM, Lab 3 😅"
+    }
+   ]
+  },
+  {
+   "id": "police",
+   "name": "+91 70XXX 45210",
+   "number": "+91 70XXX 45210",
+   "saved": false,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "Hello, main Mumbai Cyber Crime Branch se Inspector Vikram Rathod bol raha hu."
+    },
+    {
+     "direction": "in",
+     "text": "Aapke Aadhaar number se ek SIM nikla hai jisse illegal transactions hue hai aur money laundering ka case darj hua hai."
+    },
+    {
+     "direction": "in",
+     "text": "Ye matter confidential hai. Kisi ko mat batana aur video call pe bane rehna, warna aaj hi arrest warrant nikal jayega 🚨"
+    },
+    {
+     "direction": "in",
+     "text": "Aapko innocent prove karna hai toh apne account ka ₹2,80,000 RBI ke safe account me verification ke liye transfer kijiye. 24 ghante me wapas mil jayega."
+    }
+   ]
+  },
+  {
+   "id": "boss",
+   "name": "Rakesh Sir (new)",
+   "number": "+91 81XXX 90876",
+   "saved": false,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "Hi, this is Rakesh sir. This is my new number, please save it."
+    },
+    {
+     "direction": "in",
+     "text": "I'm in a board meeting and can't take calls. I need you to handle something urgent and confidential."
+    },
+    {
+     "direction": "in",
+     "text": "Please transfer ₹4,75,000 to our new vendor account today. Don't discuss with the accounts team yet.\nA/c 50200098765432 | IFSC HDFC0001234"
+    },
+    {
+     "direction": "in",
+     "text": "Send me the UTR screenshot once done. I'm counting on you."
+    }
+   ]
+  },
+  {
+   "id": "kyc",
+   "name": "+91 62XXX 33019",
+   "number": "+91 62XXX 33019",
+   "saved": false,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "Dear Customer, your SBI YONO account will be blocked today due to pending KYC ⚠️ Update immediately: sbi-yono-kyc-update.in"
+    },
+    {
+     "direction": "in",
+     "text": "If you are facing issue, share the OTP received on your mobile to complete KYC verification."
+    }
+   ]
+  },
+  {
+   "id": "job",
+   "name": "Priya HR",
+   "number": "+91 93XXX 11847",
+   "saved": false,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "Hello 😊 I'm Priya from DigitalBoost. We have part-time work from home: like YouTube videos and earn ₹50 per like, up to ₹3,000 daily!"
+    },
+    {
+     "direction": "out",
+     "text": "What do I need to do?"
+    },
+    {
+     "direction": "in",
+     "text": "Your first 3 tasks are paid ✅ ₹150 credited. Now join our Telegram group for VIP tasks 👉 t.me/boost_tasks_vip"
+    },
+    {
+     "direction": "in",
+     "text": "Next is a prepaid task: deposit ₹2,000 and get ₹2,700 back in 30 minutes 💰 Limited slots, do it fast!"
+    }
+   ]
+  },
+  {
+   "id": "stocks",
+   "name": "Bull Run VIP Traders 📈",
+   "is_group": true,
+   "saved": false,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "🚀🚀 Welcome to Bull Run VIP 🚀🚀 Our members made 18% profit this week 💰 Guaranteed 5-10% weekly returns ✅"
+    },
+    {
+     "direction": "in",
+     "text": "Institutional account holders get IPO shares at 20% discount. Download our app to activate 👇 bullrun-inst.app/download"
+    },
+    {
+     "direction": "in",
+     "text": "To withdraw your profits you must first pay 15% tax. Seats in this batch close tonight ⏰"
+    }
+   ]
+  },
+  {
+   "id": "loan",
+   "name": "QuickCash Loans",
+   "number": "+91 72XXX 55001",
+   "saved": false,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "💰 Instant loan up to ₹2,00,000 in 10 minutes ⚡ No CIBIL check ✅ Download QuickCash app 📲"
+    },
+    {
+     "direction": "in",
+     "text": "Congratulations! Your loan of ₹1,50,000 is approved. Pay processing fee of ₹2,499 today to receive the money."
+    }
+   ]
+  },
+  {
+   "id": "riya",
+   "name": "Riya 🌸",
+   "number": "+91 98XXX 22334",
+   "saved": true,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "Oyeeee 😂😂 kal ka plan pakka na? 🍕"
+    },
+    {
+     "direction": "out",
+     "text": "Haan pakka! 7 baje?"
+    },
+    {
+     "direction": "in",
+     "text": "Done 🤝 aur haan pizza ka ₹350 GPay kar dena baad me 😅"
+    },
+    {
+     "direction": "in",
+     "text": "Aur sun, college group me koi 'part time job ₹3000/day' wala msg aaya tha, fake hai, ignore kar 🙏"
+    }
+   ]
+  },
+  {
+   "id": "society",
+   "name": "Shanti Heights Society",
+   "is_group": true,
+   "saved": true,
+   "messages": [
+    {
+     "direction": "in",
+     "text": "Dear members, Q3 maintenance ₹4,200 is due by 10th. Late fee ₹200 after that. Pay at the office or through the society app 🙏"
+    },
+    {
+     "direction": "in",
+     "text": "Water supply will be off tomorrow 10 AM to 2 PM due to tank cleaning. Please store water."
+    }
+   ]
+  }
+ ],
+ "scripts": [
+  {
+   "name": "Digital arrest (live)",
+   "chat_name": "+91 89XXX 76543",
+   "number": "+91 89XXX 76543",
+   "delay": 4,
+   "messages": [
+    "Hello, am I speaking with you? This is Customs Department, Delhi Airport.",
+    "A parcel booked in your name to Taiwan has been seized with 5 passports and MDMA drugs. An FIR is registered.",
+    "I am transferring your call to CBI officer. Stay on video call and do not tell anyone in your family. 🚨",
+    "To prove you are innocent, transfer your savings to the RBI verification account now. It will be refunded after investigation."
+   ]
+  },
+  {
+   "id": "",
+   "name": "Boss gift cards (live)",
+   "chat_name": "Mehta Sir (new)",
+   "number": "+91 90XXX 12121",
+   "delay": 4,
+   "messages": [
+    "Hello, Mehta sir here. Saving my new number, are you free?",
+    "I'm stuck in a client meeting, can't talk. Need a small urgent favour.",
+    "Buy 5 Amazon gift cards of ₹5,000 each for a client and send me the codes here. Will reimburse by evening. Keep it between us 🙏"
+   ]
+  },
+  {
+   "name": "WhatsApp code (account takeover)",
+   "chat_name": "+92 301 XXXX812",
+   "number": "+92 301 XXXX812",
+   "delay": 4,
+   "messages": [
+    "Hi, I accidentally sent my 6-digit code to your number 😅",
+    "Can you please send that code to me? It's urgent, my account is locked."
+   ]
+  },
+  {
+   "name": "Normal friend (no alert expected)",
+   "chat_name": "Riya 🌸",
+   "chat_id": "riya",
+   "delay": 3,
+   "messages": [
+    "Reached home? 😊",
+    "Mummy ne kaha kal lunch pe aana, paneer banega 🤤",
+    "Bye, good night 🌙"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,107 @@
+id,split,text,is_scam,scam_type,independent_p_scam,independent_type,why_flagged,decision
+rdf0b707df2,train,Jio eSIM KYC verification failed. Your Aadhaar details do not match our records. Please visit https://jio.com/kyc-fix or reply with corrected Aadhaar number within 24 hours to avoid service suspension.,0,benign,0.91,kyc_bank,looks SCAM,keep
+rdf166e691b,train,"As per SEBI guidelines, please complete your annual KYC re-verification in the app under Profile > Account. Do not share your OTP with anyone.",0,benign,0.861,kyc_bank,looks SCAM,keep
+rfceb1a972b,train,"As discussed in the approval meeting, please release the second milestone payment of ₹12,00,000 to Zenith Constructions. Approval note: AP/2026/1187. Please confirm the release in the ERP and share the UTR with me.",0,benign,0.85,boss_impersonation,looks SCAM,keep
+r250cffe1cb,train,YES Bank: Your savings account activation is pending. KYC video call is mandatory. Please schedule a call with our KYC team within 48 hours.,0,benign,0.841,kyc_bank,looks SCAM,keep
+r7d3b13fb6f,val,आज भुगतान नहीं किया तो आपकी फोटो सभी संपर्कों को भेज देंगे 😡,1,loan_app,0.164,digital_arrest,looks BENIGN,keep
+r7f6e9679d2,train,"Vendor Delta Packaging has requested a change of bank account. As per policy, we will verify it with a call-back to the registered contact before updating the vendor master. Please do not release any payment to the new account until this is completed.",0,benign,0.833,boss_impersonation,looks SCAM,keep
+rf33ab85ce1,train,"दरमहा 5% निश्चित परतावा, कोणताही धोका नाही 💸",1,investment_group,0.174,investment_group,looks BENIGN,keep
+r937fd0140e,train,"Refer & Earn update: when your friend opens a demat account using your referral link and completes their first trade within 30 days, both of you will receive ₹300 as brokerage credit. Referral rewards are limited to 25 successful referrals per year and cannot be withdrawn as cash. We never ask you to pay any fee to participate in the referral programme. Terms and conditions apply.",0,benign,0.825,investment_group,looks SCAM,keep
+rf10c942fe7,train,"In today's workshop we will discuss why guaranteed returns are not possible in the stock market. We will compare fixed deposits, debt funds and equity funds, look at historical returns and drawdowns, and understand how risk and return are linked. Participants will also learn how to check whether an adviser is registered with SEBI and how to verify a broker's app. The session is free for all members of the residents' association.",0,benign,0.824,investment_group,looks SCAM,keep
+r3e0564aac0,train,"Yesterday's call gave 18%, did you book profit?",1,investment_group,0.183,investment_group,looks BENIGN,drop
+re8795ceff5,train,"Payment of ₹4,75,000 to Metro Supplies against PO-9921 has been approved in the ERP by Mr. Sharma and the CFO. Finance will release it tomorrow morning in the standard payment run. Account details are as per the vendor master. 🙏",0,benign,0.817,boss_impersonation,looks SCAM,keep
+r61e096d3ee,train,"सिबिल खराब है? कोई बात नहीं, सबको लोन मिलेगा 💵",1,loan_app,0.189,investment_group,looks BENIGN,keep
+r1c484b4bdd,train,आगे के टास्क के लिए हमारे टेलीग्राम ग्रुप से जुड़ें 👉,1,job_task,0.199,investment_group,looks BENIGN,keep
+rf2e6bd0592,val,"As per the approved PO-8812, release ₹3,18,000 to Kaveri Logistics, A/c 39100287654, IFSC SBIN0004521, as already in the vendor master. Approval ref AP/2026/1203. Please process it in today's payment run.",0,benign,0.795,boss_impersonation,looks SCAM,keep
+r3a842664e8,train,"Bhai ye stock abhi le, kal 20% upar 🚀",1,investment_group,0.212,investment_group,looks BENIGN,keep
+rec11389187,val,"hey, i manage portfolios for nri clients, want help?",1,investment_group,0.213,investment_group,looks BENIGN,keep
+re5adc8d66c,train,"इस कंपनी में अगले हफ्ते बड़ा ऑर्डर आने वाला है, अभी खरीद लो, किसी को मत बताना 🤫",1,investment_group,0.225,digital_arrest,looks BENIGN,keep
+rd28a18b08a,train,"Your recurring deposit instalment of ₹3,000 has been debited successfully. 🙂",0,benign,0.772,job_task,looks SCAM,keep
+r08c6ffb370,train,"क्लायंटसाठी 4 गिफ्ट व्हाउचर घे आणि कोड इथे पाठव, कोणाला सांगू नकोस 🙏",1,boss_impersonation,0.228,digital_arrest,looks BENIGN,keep
+re9e0b97a8f,train,"Hey, welcome to the internship! 😊 The stipend is ₹12,000 per month, credited on the 5th, and no deposit or fees are involved. See you on Monday!",0,benign,0.771,investment_group,looks SCAM,keep
+r93d3385d46,train,"Kal mujhe ek call aaya, bola 'Main ED officer hu, aapke against money laundering case hai, abhi 2 lakh transfer karo.' Maine seedha kaat diya call, kya bakwas tha.",0,benign,0.76,digital_arrest,looks SCAM,keep
+r9fcbb4e7a7,train,"Bhai maine jo stock bola tha wo dekha? 2 din me 30% chal gaya 🚀 Agla bhi aisa hi hai, sirf group walo ko bata raha hu",1,investment_group,0.243,investment_group,looks BENIGN,keep
+rc19b43dc9a,train,"Funds of ₹25,000 have been added to your trading account via UPI. Available margin: ₹25,000. 📈",0,benign,0.756,investment_group,looks SCAM,keep
+r1d4cd47f30,train,SBI eSavings Account: KYC incomplete - Mobile number verification pending. Click the link sent to your registered SMS to complete OTP verification.,0,benign,0.747,kyc_bank,looks SCAM,keep
+rd21202c0ea,train,"बोर्ड से मंज़ूरी मिल चुकी है, सामान्य प्रक्रिया की ज़रूरत नहीं। भुगतान तुरंत कर दो ✅",1,boss_impersonation,0.256,digital_arrest,looks BENIGN,keep
+rf5ffa3abc8,train,Your offer letter is attached to the mail from our HR desk. Pls revert with your acceptence by Friday.,0,benign,0.738,job_task,looks SCAM,keep
+rd017d47897,train,"Someone sent this gem: 'Your SIM card will be blocked in 2 hours due to KYC pending, click here immediately.' TRAI doesn't even do this lol",0,benign,0.735,kyc_bank,looks SCAM,keep
+rd9e211f970,val,Your BigBasket order has been shipped and will arrive today.,0,benign,0.731,investment_group,looks SCAM,keep
+r59db2aa690,test,"Dear Customer, your personal loan application has been approved for ₹3,00,000 at an interest rate of 11.25% p.a. for a tenure of 36 months. Your EMI will be ₹9,859. The processing fee of ₹2,950 (including GST) will be deducted from the loan amount, and the net amount of ₹2,97,050 will be credited to your savings account. Please review and accept the Key Fact Statement in the official app to complete disbursal.",0,benign,0.73,loan_app,looks SCAM,keep
+r36712f888d,train,"मैं सेबी पंजीकृत सलाहकार हूँ, आपका पोर्टफोलियो संभालकर हर महीने 6% दूँगा।",1,investment_group,0.272,digital_arrest,looks BENIGN,keep
+r6ab5d67800,train,"मैं अधिकारी सुनील राणा, कस्टम्स साइबर सेल से बोल रहा हूं। कृपया इस लिंक से जुड़ें: meet.google.com/customs-verify-119",1,digital_arrest,0.272,digital_arrest,looks BENIGN,keep
+rc84ff1ea08,test,"Papa aapko jo stock market group me add kiya hai na, wo fraud lag raha hai. Wahan sab log roz profit ke screenshots daalte hai par wo sab unke hi log hote hai. Mere office ke ek uncle ne aise hi group ke kehne pe app download kiya tha aur ₹4 lakh dale the, ab withdraw nahi ho raha aur wo log 20% tax maang rahe hai. Please aap group exit kar do aur koi paisa mat bhejna 🙏",0,benign,0.723,investment_group,looks SCAM,keep
+r48fb14d568,train,"Bhai kal launch hai is coin ka, abhi ₹10k dal de, 1 hafte me 5 guna 🚀 jldi",1,investment_group,0.277,investment_group,looks BENIGN,keep
+rced332b87f,val,"Mera CIBIL 760 hai, bank wale bol rahe the instant approval mil jayega app se 👍",0,benign,0.722,loan_app,looks SCAM,keep
+r975e1ff88b,train,"हर महीने 8% पक्का रिटर्न, कोई जोखिम नहीं 💰📈",1,investment_group,0.284,investment_group,looks BENIGN,keep
+r6ae373d430,train,"*Forwarded as received from the cyber cell* 🙏 Please be careful about WhatsApp groups that call themselves 'VIP trading' or 'institutional investor' clubs. They add you without permission, show fake profit screenshots and later ask you to download an app that is not on the Play Store. When you try to withdraw, they ask for tax or fees. SEBI-registered advisers never guarantee returns. If you have been cheated, call 1930 immediately.",0,benign,0.715,investment_group,looks SCAM,keep
+r786c42ab51,test,"आरबीआयची नोटीस आली आहे, जोडलेली फाइल ऑफिसच्या कॉम्प्युटरवर उघडा आणि आजच उत्तर द्या.",1,boss_impersonation,0.286,digital_arrest,looks BENIGN,keep
+ra3991b48d5,train,"Your education loan of ₹8,00,000 has been sanctioned. Fees will be paid directly to the university as per the fee schedule.",0,benign,0.714,loan_app,looks SCAM,keep
+r96a72ce4bf,train,"Your credit card is eligible for an instant loan of ₹75,000 at 12.99% p.a. Accept the offer in the official app; the amount will be credited to your account.",0,benign,0.714,loan_app,looks SCAM,keep
+r8d21db6733,train,I am a SEBI-registered advisor. Shall I manage your portfolio?,1,investment_group,0.293,investment_group,looks BENIGN,keep
+rad032753f3,train,"Hi Rohan, I'm a talent acquisition specialist at Persistent Systems. We have an opening for a Backend Engineer in Pune and your profile looks relevant. Would you be open to a 20-minute call this week? You can also apply directly on our careers page. 😊",0,benign,0.707,job_task,looks SCAM,keep
+r3d012f23c0,val,"Reminder: any payment above ₹5,00,000 requires approval from both the Finance Head and the CFO in the ERP. No payment will be released on verbal or chat instructions.",0,benign,0.704,boss_impersonation,looks SCAM,keep
+r309257e8c0,test,"Please log in to the HRMS portal using the credentials sent to your official email and upload your Aadhaar, PAN and educational certificates by Friday. Do not share documents over chat.",0,benign,0.698,job_task,looks SCAM,keep
+r63b6219e99,test,ICICI Bank: Your Demat account KYC has been declined. Reason: Video KYC not completed. Please complete video verification within 48 hours.,0,benign,0.694,kyc_bank,looks SCAM,keep
+r6a75fc178b,train,पेमेंट हो गया? UTR और स्क्रीनशॉट तुरंत भेजो।,1,boss_impersonation,0.308,digital_arrest,looks BENIGN,drop
+r01fc0fa848,train,"वेंडर का बैंक खाता बदल गया है, अब का भुगतान इस नए खाते में करें: 50200012340987",1,boss_impersonation,0.308,boss_impersonation,looks BENIGN,keep
+r6b9fa23f3a,train,Kotak Mahindra: Your pan-India savings account KYC review failed. Selfie with Aadhaar not legible. Resubmit clear selfie holding your Aadhaar card.,0,benign,0.687,kyc_bank,looks SCAM,keep
+r9dfdb33151,train,"आपका पहला ट्रांसफर प्राप्त हो चुका है और सत्यापन में है। नियम अनुसार, पूरी राशि वापस पाने के लिए ₹75,000 का दूसरा भुगतान आवश्यक है।",1,digital_arrest,0.313,digital_arrest,looks BENIGN,keep
+r7e0c1f5beb,train,Proccessing fee pending. Offer expires at 6 PM. ⏳,1,loan_app,0.316,investment_group,looks BENIGN,keep
+r6596b97083,train,"बेटा मुझे बैंक से मैसेज आया है कि मेरा SBI का KYC नहीं हुआ तो खाता बंद हो जाएगा, ये लिंक खोलकर फॉर्म भरना है sbi-safeupdate.net, जल्दी करना पैसे निकल जाएंगे नहीं तो",1,kyc_bank,0.318,kyc_bank,looks BENIGN,keep
+r1db69f3f31,train,This is Rakesh from the CEO's office. The board meeting has been moved to Friday 3 PM. Please update your calendars. 📅,0,benign,0.678,boss_impersonation,looks SCAM,keep
+rb397fde323,test,"Please procced with the payment to Orion Components, it has been approved through the workflow (ref AP-2291). Update the tracker once releassed.",0,benign,0.677,boss_impersonation,looks SCAM,keep
+r04086a62fc,val,"dont worry about the risk part, i asked them the same thing. they said the capital is insured and the returns come from some fixed lending business, not stocks. i've been in it for 8 months, never had a late payment. if it was risky i wouldnt have put my parents money in it na",1,investment_group,0.325,investment_group,looks BENIGN,keep
+r6e13d1d0fa,train,🚀 New coin presale 🚀 10X potential 💎 48 hrs left ⏳🔥,1,investment_group,0.326,investment_group,looks BENIGN,keep
+r369a4d606f,test,"Bhai crypto app pe KYC karna padta hai, PAN aur Aadhaar se, official app hi use kar",0,benign,0.672,kyc_bank,looks SCAM,keep
+rdb7b1b2655,train,"✨🏷️ Please reply with a suitable time to speak, and our team will be happy to call you back and guide you with your preparation. 💸 🙏 We look forward to supporting you in your UPSC journey. Best regards, Vajiram & Ravi 😍🎁🎉",0,benign,0.669,job_task,looks SCAM,keep
+r85ab06f059,train,"आधार, पॅन आणि सेल्फी व्हॉट्सअॅपवर लगेच पाठवा, फाइल पुढे पाठवायची आहे.",1,loan_app,0.332,digital_arrest,looks BENIGN,keep
+r60d4c88529,train,My clients earned 42% last quarter. Let me guide you. 📈,1,investment_group,0.334,investment_group,looks BENIGN,keep
+rda1767fa1d,train,Zerodha: Trading account KYC rejected - PAN/Aadhaar name mismatch. Please provide legal name change certificate or resubmit documents with correct details.,0,benign,0.666,kyc_bank,looks SCAM,keep
+reb237112fc,train,"Hi, this number was shared in our alumni group, wanted to connect regarding the upcoming meetup",0,benign,0.666,investment_group,looks SCAM,keep
+r0950b69737,train,नोंदणीसाठी फक्त ₹499 भरा आणि आजपासून काम सुरू करा.,1,job_task,0.335,investment_group,looks BENIGN,keep
+rcf3d0b546d,train,"आपका लोन मंज़ूर है, ₹1,999 प्रोसेसिंग फीस आज ही भरें।",1,loan_app,0.335,loan_app,looks BENIGN,keep
+r4b057e60a1,train,"If any app threatens you after a loan, report it to the police and dont pay extra.",0,benign,0.663,loan_app,looks SCAM,keep
+rfa21dc17c0,train,"जॉइनिंग के लिए आधार, पैन और बैंक पासबुक की फोटो आज ही भेजें।",1,job_task,0.337,digital_arrest,looks BENIGN,keep
+rc2e02c15e6,train,"आपके खाते से जुड़ी संदिग्ध लेनदेन की रिपोर्ट प्राप्त हुई है।
+
+एक घंटे के भीतर सत्यापन न होने पर खाता सीज़ कर दिया जाएगा।",1,digital_arrest,0.338,digital_arrest,looks BENIGN,keep
+rb4c7fd1832,test,"कर्ज मिळण्यासाठी पहिला हप्ता आधी भरावा लागेल, आजच भरा.",1,loan_app,0.338,digital_arrest,looks BENIGN,keep
+r3a10ce0384,train,"Started a ₹3,000 SIP in an index fund this month. Planning to increase it every year by 10%. 🙂",0,benign,0.662,investment_group,looks SCAM,keep
+r947e72ce47,train,"Pahila EMI aadhi bharava lagel, mag loan lagech milel 🙂",1,loan_app,0.339,loan_app,looks BENIGN,keep
+rab14fce7ab,test,Your eligibilty for a home loan is ₹42 lakh as per our calculation. Final sanction after property and income verification.,0,benign,0.659,loan_app,looks SCAM,keep
+rdc2cd5c4af,train,"Your education loan of ₹12,00,000 has been sanctioned under the Vidya Lakshmi scheme. Disbursement will be made directly to the university in instalments as per the fee schedule. The moratorium period covers the course duration plus one year, after which EMIs will begin. Please submit the fee receipt and semester results each year at the branch.",0,benign,0.652,loan_app,looks SCAM,keep
+r3e55ee96c0,train,"You have a pre-approved personal loan of ₹2,50,000 available in your bank app. Instant disbursal for existing customers; no documents required. The bank never asks for any upfront fee.",0,benign,0.649,loan_app,looks SCAM,keep
+re413de5667,train,"हे इनव्हॉइस आजच क्लिअर करा, ₹4,15,000. नवीन खाते खाली दिले आहे. 📄",1,boss_impersonation,0.351,boss_impersonation,looks BENIGN,keep
+re1465f605e,train,"Didi tumne jo ₹25,000 udhaar diye the na, wo main is mahine ₹10,000 aur agle do mahine ₹7,500 karke wapas kar dungi. Abhi bonus nahi aaya isliye ek saath nahi ho pa raha. Thank you itni madad ke liye, jab tak mera job stable nahi hua tha tab tak tumne bahut sambhala 🙏",0,benign,0.648,investment_group,looks SCAM,keep
+re6714490bc,train,Anyone offering 'guaranteed daily crypto income' is running a scheme. Real crypto has no guarantees.,0,benign,0.647,investment_group,looks SCAM,keep
+r2b85e7e8fc,val,"Dear Investor, as per SEBI regulations, we have completed the quarterly settlement of funds in your trading account. Unused funds of ₹18,240 have been transferred to your primary bank account on 4 October. If you wish to keep funds in your trading account in future, you can update your running account settlement preference in the app under Profile > Settings. For any queries, please write to us from your registered email ID.",0,benign,0.647,investment_group,looks SCAM,keep
+r9d0666418b,train,"Got the weirdest text today — 'Congratulations, you've been selected for a work from home job, pay registration fee of 999 to start.' Deleted immediately.",0,benign,0.644,job_task,looks SCAM,keep
+r37da18f4c3,test,Investors are advised to deal only with SEBI-registered intermediaries and to never transfer money to individual bank accounts for investments. 💡,0,benign,0.643,investment_group,looks SCAM,keep
+rfc91d64174,train,"Paisa bank ne hold kar diya, ₹999 aur dena padega 😕",1,loan_app,0.357,loan_app,looks BENIGN,keep
+r7f2c63be45,val,"If you need to pay to withdraw your own profits, it's 100% a scam.",0,benign,0.642,investment_group,looks SCAM,keep
+re8693a4b2a,test,Congratulations on your selection! Your joining date is 3rd November. Joining formalities and documents will be completed at our office on the day of joining. There are no charges for any part of the process. 🎉,0,benign,0.64,job_task,looks SCAM,keep
+r6fed8e871d,train,"रजिस्ट्रेशन के लिए ₹999 फीस भरें, पहली सैलरी के साथ वापस मिलेगी।",1,job_task,0.361,investment_group,looks BENIGN,keep
+rbe6c017aa2,train,"Pension application approved, first disbursement will reflect in your account within this billing cycle.",0,benign,0.638,loan_app,looks SCAM,keep
+r55829857d0,train,Payment done? Share the receipt asap. ⏰,1,boss_impersonation,0.363,boss_impersonation,looks BENIGN,drop
+r1482b0bc92,train,"आपके नाम से भेजे गए पार्सल में ड्रग्स मिलने की वजह से आपके खिलाफ NDPS एक्ट के तहत मामला दर्ज हो सकता है, कृपया तुरंत सहयोग करें।",1,digital_arrest,0.363,digital_arrest,looks BENIGN,keep
+rf5811f4499,train,"आपका खाता एक बड़े मनी लॉन्ड्रिंग रैकेट से जुड़ा पाया गया है, यदि आप सहयोग नहीं करते तो आपकी गिरफ्तारी हो सकती है।",1,digital_arrest,0.364,digital_arrest,looks BENIGN,keep
+r58df76794a,train,"तपासासाठी तुमच्या खात्यातील रक्कम आजच आम्ही दिलेल्या खात्यात पाठवा, घरच्यांना सांगू नका.",1,digital_arrest,0.364,digital_arrest,looks BENIGN,keep
+rf8141a460b,train,"बँकेकडून: तुमची केवायसी अपूर्ण आहे, आलेला ओटीपी लगेच सांगा नाहीतर खाते बंद होईल.",1,kyc_bank,0.368,digital_arrest,looks BENIGN,keep
+r5ce1ecc7b4,test,"Thank you for the brief. I will deliver the first draft of the logo concepts by Thursday, and the invoice for ₹15,000 will be raised after your approval of the final files.",0,benign,0.632,loan_app,looks SCAM,keep
+r853bfc725f,train,"Hi, kaise ho? Ghar baithe YouTube videos like karke roz ₹3000 tak kamao, interested ho toh Telegram pe baat karte hai 😊",1,job_task,0.371,job_task,looks BENIGN,keep
+r4ee38f7cd8,train,"*Public advisory* ⚠️ Fake loan apps are offering instant loans without documents and then demanding processing fees, GST and insurance charges before disbursal. Many of these apps also take access to your contacts and photos and later harass borrowers by sending morphed images to family members. Borrow only from banks and RBI-registered NBFCs, download apps only from official app stores, and never pay any fee before your loan is disbursed. Report harassment on 1930 or cybercrime.gov.in.",0,benign,0.625,loan_app,looks SCAM,keep
+r70b9c404c5,train,"Taai, mala ₹3,000 pathav na, udya parat karto",0,benign,0.624,investment_group,looks SCAM,keep
+r524eb041ae,train,"Are u free? Need 20k sent to my friend rite now, will explain latr. UPI: ramesh.k77@ybl",1,boss_impersonation,0.379,boss_impersonation,looks BENIGN,keep
+r03edaf2f3a,train,"Your personal loan of ₹2,00,000 has been disbursed to your savings account ending 4521. Your first EMI is due on 5 November.",0,benign,0.618,loan_app,looks SCAM,keep
+ree7d76f1bd,train,"Bhai ye part time task job wale msgs se bachna, pehle chhota payment dete hai fir deposit karwate hai, mere cousin ke ₹40,000 gaye 😞",0,benign,0.617,job_task,looks SCAM,keep
+r424df7e488,test,"Dear Customer, a payment of ₹9,100 towards your loan EMI is pending. Please pay through net banking or visit the branch. Ignore if already paid. 🏦",0,benign,0.616,loan_app,looks SCAM,keep
+r6b308f8a58,train,Aadhaar UIDAI: Your OTP for e-KYC verification is 529367. Valid for 10 minutes. Keep it confidential.,0,benign,0.615,kyc_bank,looks SCAM,keep
+r165c6544d2,train,"क्लाइंट के लिए 5 अमेज़न गिफ्ट कार्ड खरीदकर कोड यहीं भेजो, किसी को बताना मत 🙏",1,boss_impersonation,0.385,investment_group,looks BENIGN,keep
+r0f4d4e0726,train,Paisa bilkul safe hai aunty ji 🙏,1,investment_group,0.386,investment_group,looks BENIGN,drop
+r3cfa0afd7a,train,"प्रवर्तन निदेशालय की सूचना:
+
+आपका बैंक खाता एक मनी लॉन्ड्रिंग मामले में संदिग्ध पाया गया है।
+
+तुरंत सत्यापन के लिए वीडियो कॉल पर उपस्थित हों।",1,digital_arrest,0.389,digital_arrest,looks BENIGN,keep
+r62c5d54bf6,train,Case file (Ref: ED/UP/2026/7734) ready hai verification ke liye. Telegram par join kariye: t.me/ed_verification_desk aur documents submit kariye.,1,digital_arrest,0.392,digital_arrest,looks BENIGN,keep

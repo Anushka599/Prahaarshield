@@ -1,0 +1,752 @@
+[
+ {
+  "kind": "link",
+  "value": "https://onlinesbi.sbi/",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://www.hdfcbank.com/personal",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://incometax.gov.in/iec/foportal",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://uidai.gov.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://sbi.bank.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://www.icicibank.com",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://rbi.org.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://cybercrime.gov.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://sancharsaathi.gov.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://www.irctc.co.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://www.amazon.in/dp/B0X",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://www.flipkart.com/",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://zerodha.com/",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://groww.in/",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://epfindia.gov.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://www.sebi.gov.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://digilocker.gov.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://www.npci.org.in",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://paytm.com",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://www.phonepe.com",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "link",
+  "value": "https://sbi-kyc-update.in/verify",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "http://hdfc-netbanking-login.xyz",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://icici-reward-points.top",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://yono-sbi-kyc.online/login",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "bit.ly/3kYcUpd",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "tinyurl.com/kyc-now",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "http://103.45.22.10/login",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://rbi-refund-desk.site",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://paytm-cashback.click/claim",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://amaz0n-offer.shop",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://sbl-netbanking.com",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://hdfcbnak.com",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://xn--sbi-kyc-9ya.com",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://free-loan-app.top/app.apk",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://incometax-refund.info/claim",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://zerodha-vip-group.live",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://flipkart-lucky-draw.win",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://customs-parcel-fee.online",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "http://upstox-ipo-allotment.xyz",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://police-challan-pay.top",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://boost-tasks-vip.com",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://yono-reward-points.com",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://md-docs-view.top",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://t.me/boost_tasks_vip",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://court-notice-online.site",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://customs-parcel-clear.app",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://nocibil-instant.site",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://alpha-traders-club.site",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://cyber-police-verify.online",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://vendor-payment-portal.top",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://crypto-arbitra-ai.online",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "link",
+  "value": "https://rbi-loan-approval.in",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "ramesh.kumar@okaxis",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "9822011111@ybl",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "priya123@oksbi",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "shopkeeper@paytm",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "anil.mehta@okhdfcbank",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "neha@icici",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "ravi.k@ibl",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "sunita@axl",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "kirana.store@ybl",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "mummy@okicici",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "upi",
+  "value": "kyc.update.help@ybl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "rbi.refund.desk@paytm",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "police.fine.pay@okaxis",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "lottery.prize99@ybl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "loan.fee.collect@xyzbank",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "cbi.verify@abcpay",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "cashback.reward@okaxis",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "customs.clearance@ibl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "gift.voucher@ybl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "refund.support@paytm",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "instant.loan96@paytm",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "md.office38@okaxis",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "customs.clear57@ybl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "police.case69@okaxis",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "like.earn28@axl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "prepaid.task56@okaxis",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "court.fine53@axl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "vendor.pay46@axl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "loan.fee22@paytm",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "task.reward51@ibl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "rbi.safe.ac42@axl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "upi",
+  "value": "like.earn55@ibl",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "1930",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "112",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "1601234567",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "1600123456",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "1800-425-3800",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 98220 11111",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "9876543210",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 70201 33445",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "020 2612 3456",
+  "text": "",
+  "expected": "good"
+ },
+ {
+  "kind": "phone",
+  "value": "12345",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 99999",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "98765432",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 12345 67890",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 97879 43262",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 93528 66753",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 77929 84162",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 86105 91483",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 95136 27010",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 78316 63233",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 67847 26714",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 96882 81126",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 60527 91372",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 74146 17544",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 85263 09765",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 70XXX 45210",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 76538 45355",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 84796 74521",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 87354 86439",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 75666 36322",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 87555 21824",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 82163 11119",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 68538 01291",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 72XXX 55001",
+  "text": "",
+  "expected": "bad"
+ },
+ {
+  "kind": "phone",
+  "value": "+92 300 1234567",
+  "text": "",
+  "expected": "note"
+ },
+ {
+  "kind": "phone",
+  "value": "+971 50 123 4567",
+  "text": "",
+  "expected": "note"
+ },
+ {
+  "kind": "phone",
+  "value": "+855 12 345 678",
+  "text": "",
+  "expected": "note"
+ },
+ {
+  "kind": "phone",
+  "value": "+1 415 555 0100",
+  "text": "",
+  "expected": "note"
+ },
+ {
+  "kind": "phone",
+  "value": "+44 7700 900123",
+  "text": "",
+  "expected": "note"
+ },
+ {
+  "kind": "phone",
+  "value": "+84 90 123 4567",
+  "text": "",
+  "expected": "note"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 98111 22334",
+  "text": "This is SBI KYC department, your account will be blocked",
+  "expected": "note"
+ },
+ {
+  "kind": "phone",
+  "value": "+91 70111 98765",
+  "text": "Mumbai police cyber cell here",
+  "expected": "note"
+ }
+]

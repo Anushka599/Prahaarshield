@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Simulation Pro - PrahaarShield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --wa-bg: #e5ddd5;
+            --wa-green: #dcf8c6;
+            --wa-white: #ffffff;
+            --wa-header: #075e54;
+            --wa-dark: #128c7e;
+            --link-color: #039be5;
+        }
+
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            background-color: #000;
+            display: flex; overflow: hidden;
+        }
+
+        .app-container { display: flex; width: 100vw; height: 100vh; }
+
+        .dashboard {
+            flex: 1; display: flex; flex-direction: column;
+            background: var(--wa-bg); border-right: 1px solid rgba(0,0,0,0.1);
+            position: relative; transition: all 0.4s ease-in-out; min-width: 0;
+        }
+
+        .dashboard-header {
+            background: var(--wa-header); color: white;
+            padding: 10px 15px; display: flex;
+            align-items: center; justify-content: space-between;
+            height: 60px; box-sizing: border-box;
+        }
+
+        .user-info { display: flex; align-items: center; gap: 12px; }
+        .avatar { width: 40px; height: 40px; border-radius: 50%; background: #dfe5e7; display: flex; align-items: center; justify-content: center; color: #919191; }
+
+        #sos-trigger {
+            background: #ff0000; color: white;
+            padding: 8px 20px; border-radius: 6px;
+            cursor: pointer; font-weight: bold; border: 2px solid white;
+        }
+
+        .chat-window {
+            flex: 1; padding: 20px; overflow-y: auto;
+            display: flex; flex-direction: column; gap: 8px;
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+        }
+
+        .message {
+            max-width: 70%; padding: 8px 12px;
+            border-radius: 8px; font-size: 14.5px;
+            position: relative; box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+        }
+
+        .message img { max-width: 100%; border-radius: 5px; margin-top: 5px; cursor: pointer; }
+        
+        .doc-msg { 
+            display: flex; align-items: center; gap: 10px; 
+            background: rgba(0,0,0,0.05); padding: 10px; 
+            border-radius: 5px; margin-top: 5px; cursor: pointer; 
+        }
+
+        .sent { align-self: flex-end; background: var(--wa-green); border-top-right-radius: 0; }
+        .received { align-self: flex-start; background: var(--wa-white); border-top-left-radius: 0; }
+
+        .input-area {
+            background: #f0f0f0; padding: 10px 15px;
+            display: flex; align-items: center; gap: 12px;
+        }
+
+        .input-box {
+            flex: 1; border: none; padding: 12px 15px;
+            border-radius: 25px; outline: none; font-size: 15px;
+        }
+
+        .icon-btn { font-size: 22px; color: #54656f; cursor: pointer; }
+        .hidden { flex: 0 !important; width: 0 !important; opacity: 0; pointer-events: none; }
+        
+        #toggle-arrow {
+            position: fixed; right: 15px; top: 50%;
+            background: #333; color: white;
+            width: 35px; height: 70px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 10px 0 0 10px; cursor: pointer; z-index: 1000;
+        }
+
+        /* Full Screen Overlay for Image Preview */
+        #img-preview {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: none; flex-direction: column; justify-content: center;
+            align-items: center; z-index: 10000;
+        }
+        #img-preview img { max-width: 90%; max-height: 85%; object-fit: contain; }
+        .close-preview {
+            position: absolute; top: 20px; right: 30px;
+            color: white; font-size: 40px; cursor: pointer;
+        }
+
+        /* SOS Alert Overlay */
+        #sos-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(180, 0, 0, 0.98);
+            color: white; display: none;
+            flex-direction: column; justify-content: center;
+            align-items: center; z-index: 9999; text-align: center;
+        }
+
+        .typing-status { font-size: 12px; color: #e1e1e1; font-style: italic; }
+        /* ===== PrahaarShield additions ===== */
+        .tools { display:flex; gap:16px; align-items:center; }
+        .tools i { cursor:pointer; font-size:17px; opacity:.9; }
+        .tools i.off { opacity:.35; }
+        .tools .lang-tag { font-size:12px; font-weight:bold; border:1px solid #fff; border-radius:4px; padding:1px 5px; cursor:pointer; }
+        .tools .fb-count { font-size:11px; background:#fff; color:#075e54; border-radius:8px; padding:0 6px; font-weight:bold; }
+        #chat-banner { display:none; padding:9px 15px; font-size:14px; font-weight:600; cursor:pointer; color:#111; }
+        #chat-banner.lvl4 { color:#fff; animation: ps-pulse 1.2s infinite; }
+        @keyframes ps-pulse { 50% { opacity:.75; } }
+        .ps-tag { display:inline-block; margin-top:6px; font-size:12px; font-weight:700; border-radius:6px; padding:2px 7px; cursor:pointer; color:#111; }
+        .ps-dbg { margin-top:6px; font-size:11px; color:#555; font-family:Consolas,monospace; border-top:1px dashed #ccc; padding-top:4px; }
+        .ps-dbg button { font-size:11px; border:1px solid #bbb; background:#fff; border-radius:4px; cursor:pointer; margin-left:4px; padding:1px 6px; }
+        .ps-dbg button.done { background:#dcf8c6; border-color:#8bc34a; }
+        .ps-note { margin-top:5px; font-size:11px; color:#888; font-style:italic; }
+        body.nodebug .ps-dbg { display:none; }
+        body.nodebug .ps-tech { display:none; }
+        .ps-tech { margin-top:6px; font-size:11px; color:#777; font-family:Consolas,monospace; }
+        .ps-fb { margin-top:6px; font-size:11px; color:#777; border-top:1px dashed #ddd; padding-top:4px; }
+        .ps-fb button { font-size:11px; border:1px solid #bbb; background:#fff; border-radius:4px; cursor:pointer; margin-left:4px; padding:1px 6px; }
+        .ps-fb button.done { background:#dcf8c6; border-color:#8bc34a; }
+        .ps-exp { margin-top:6px; padding:6px 9px; background:#f5f7f8; border-radius:6px; font-size:13px; line-height:1.4; color:#222; border-left:4px solid #9be7a8; }
+        .ps-exp ul { margin:3px 0 0 16px; padding:0; } .ps-exp .fx { color:#666; font-size:12px; margin-top:3px; }
+        .ps-warn { margin-top:6px; padding:8px 10px; background:#ffebee; border:1px solid #ef9a9a; border-radius:6px; font-size:13px; line-height:1.4; color:#b71c1c; }
+        .ps-warn ul { margin:3px 0 0 16px; padding:0; }
+        .ps-warn button, .ps-warn a, .ps-crit button, .ps-crit a { font-size:12px; margin:6px 6px 0 0; border:1px solid #e57373; background:#fff; color:#b71c1c;
+            border-radius:12px; padding:3px 10px; cursor:pointer; text-decoration:none; display:inline-block; font-weight:600; }
+        .ps-crit { align-self:center; max-width:88%; margin:8px auto; padding:10px 14px; background:#d50000; color:#fff; border-radius:10px;
+            font-size:14px; line-height:1.4; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,.25); }
+        #explain-modal { position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; align-items:center; justify-content:center; z-index:9998; }
+        #explain-card { background:#fff; width:min(560px,92vw); max-height:85vh; overflow-y:auto; border-radius:10px; padding:20px 22px; font-size:15px; line-height:1.45; }
+        #explain-card h3 { margin:14px 0 6px; font-size:13px; text-transform:uppercase; color:#667; letter-spacing:.4px; }
+        #explain-card ul { margin:0; padding-left:20px; }
+        .ps-lvl { display:inline-block; border-radius:6px; padding:3px 10px; font-weight:700; color:#111; }
+        .ps-btns { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+        .ps-btns a, .ps-btns button { border:0; border-radius:18px; padding:9px 14px; font-size:14px; cursor:pointer; text-decoration:none; background:#eceff1; color:#111; }
+        .ps-btns .red { background:#d50000; color:#fff; }
+        #sos-overlay .sos-body { background:rgba(255,255,255,.08); border-radius:10px; padding:16px 22px; max-width:760px; width:90%; text-align:left; max-height:62vh; overflow-y:auto; font-size:15px; line-height:1.45; }
+        #sos-overlay h3 { font-size:13px; text-transform:uppercase; letter-spacing:.5px; opacity:.85; margin:12px 0 4px; }
+        #sos-overlay ul { margin:0; padding-left:20px; }
+        .tl { border-left:3px solid #fff; padding:3px 0 3px 10px; margin:5px 0; }
+        #crit-overlay { position:fixed; inset:0; background:rgba(180,0,0,.97); color:#fff; display:none; flex-direction:column; justify-content:center; align-items:center; text-align:center; z-index:9999; padding:30px; box-sizing:border-box; }
+
+    
+        /* ===== v3: setup wizard, views, highlights ===== */
+        #setup { position:fixed; inset:0; background:rgba(7,94,84,.97); z-index:20000; display:none; align-items:center; justify-content:center; }
+        #setup .card { background:#fff; width:min(520px,92vw); border-radius:14px; padding:26px 26px 20px; box-shadow:0 10px 40px #0006; }
+        #setup h2 { margin:0 0 4px; font-size:20px; color:#075e54; } #setup .sub { color:#667; font-size:13px; margin-bottom:16px; }
+        #setup .opts { display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 4px; }
+        #setup .opt { border:2px solid #cfd8dc; background:#fff; border-radius:10px; padding:11px 16px; font-size:15px; cursor:pointer; }
+        #setup .opt.sel { border-color:#00a884; background:#e7f8f2; font-weight:600; }
+        #setup input[type=text] { width:100%; box-sizing:border-box; padding:11px 12px; border:1px solid #cfd8dc; border-radius:8px; font-size:15px; margin:6px 0; }
+        #setup .nav { display:flex; justify-content:space-between; align-items:center; margin-top:18px; }
+        #setup .nav button { border:0; border-radius:8px; padding:10px 20px; font-size:15px; cursor:pointer; }
+        #setup .next { background:#00a884; color:#fff; } #setup .back { background:#eceff1; }
+        #setup .dots { font-size:12px; color:#90a4ae; } #setup .demo-tag { font-size:11px; color:#e65100; margin-top:4px; }
+        .chat-meta { font-size:11px; color:#d7f5ee; display:block; margin-top:1px; }
+        .edit-name { cursor:pointer; opacity:.8; font-size:13px; margin-left:6px; }
+        mark.risk { background:#ffe082; padding:0 2px; border-radius:3px; }
+        .facts li { color:#455a64; }
+        body.view-user #scamBoard, body.view-user #toggle-arrow { display:none !important; }
+        body.view-scam #userBoard { display:none !important; } body.view-scam #toggle-arrow { display:none !important; }
+    </style>
+</head>
+<body>
+
+<div id="toggle-arrow" onclick="toggleScammer()">
+    <i class="fa-solid fa-caret-left" id="arrow-icon"></i>
+</div>
+
+<div class="app-container">
+    <div class="dashboard" id="userBoard">
+        <div class="dashboard-header">
+            <div class="user-info">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <div><strong style="display:block">Shyna</strong><span id="shyna-status" class="typing-status">online</span>
+                     <span class="chat-meta" id="chat-meta"></span></div>
+            </div>
+            <button id="sos-trigger" onclick="activateSOS()">SOS</button>
+        </div>
+        <div id="chat-banner" onclick="activateSOS()"></div>
+        <div class="chat-window" id="userChat"></div>
+        <div class="input-area">
+            <i class="fa-solid fa-plus icon-btn" onclick="triggerFile('user')"></i>
+            <input type="text" class="input-box" id="userInput" placeholder="Type a message" oninput="handleTyping('user')">
+            <i class="fa-regular fa-face-smile icon-btn"></i>
+            <i class="fa-solid fa-paper-plane icon-btn" style="color: #00a884" onclick="send('user')"></i>
+        </div>
+    </div>
+
+    <div class="dashboard" id="scamBoard">
+        <div class="dashboard-header">
+            <div class="user-info">
+                <div class="avatar" id="scam-avatar"><i class="fa-solid fa-user-secret"></i></div>
+                <div><strong style="display:block"><span id="scam-name">Unknown Person</span><i class="fa-solid fa-pen edit-name" title="Edit name" onclick="editName()"></i></strong>
+                     <span id="unknown-status" class="typing-status">online</span></div>
+            </div>
+            <div class="tools">
+                <i class="fa-solid fa-sliders" title="Demo session setup" onclick="openSetup(true)"></i>
+                <i class="fa-solid fa-bug" id="t-debug" title="Show model scores + right/wrong buttons" onclick="toggleDebug()"></i>
+                <span class="lang-tag" id="t-lang" title="Explanation language" onclick="cycleLang()">EN</span>
+                <i class="fa-solid fa-rotate-left" title="Clear this chat" onclick="resetChat()"></i>
+                <i class="fa-solid fa-download" title="Download wrong-prediction log (CSV)" onclick="window.open('/api/feedback/export','_blank')"></i>
+                <span class="fb-count" id="fb-count" title="Wrong predictions logged">0</span>
+            </div>
+        </div>
+        <div class="chat-window" id="scamChat"></div>
+        <div class="input-area">
+            <i class="fa-solid fa-plus icon-btn" onclick="triggerFile('scam')"></i>
+            <input type="text" class="input-box" id="scamInput" placeholder="Type a message" oninput="handleTyping('scam')">
+            <i class="fa-regular fa-face-smile icon-btn"></i>
+            <i class="fa-solid fa-paper-plane icon-btn" style="color: #00a884" onclick="send('scam')"></i>
+        </div>
+    </div>
+</div>
+
+<input type="file" id="userFileInput" style="display:none" onchange="handleFile(this, 'user')">
+<input type="file" id="scamFileInput" style="display:none" onchange="handleFile(this, 'scam')">
+
+<div id="img-preview" onclick="closePreview()">
+    <span class="close-preview">&times;</span>
+    <img id="preview-content" src="" onclick="event.stopPropagation()">
+    <p style="color: #aaa; margin-top: 15px;">Click anywhere to return to chat</p>
+</div>
+
+<div id="sos-overlay">
+    <h1 style="font-size: 3rem; margin:0 0 10px;">🚨 SOS ACTIVATED 🚨</h1>
+    <p id="sos-sub" style="font-size: 1.2rem; margin:0 0 14px;"></p>
+    <div class="sos-body" id="sos-body"></div>
+    <div class="ps-btns" style="justify-content:center">
+        <a class="red" href="tel:1930" style="background:#fff;color:#b40000;font-weight:bold">📞 Call 1930</a>
+        <a href="https://cybercrime.gov.in" target="_blank">🌐 cybercrime.gov.in</a>
+        <a href="https://sancharsaathi.gov.in" target="_blank">📵 Report (Chakshu)</a>
+        <button onclick="showEvidence()">📄 Evidence pack</button>
+        <button onclick="notScam()">✓ Not a scam</button>
+    </div>
+    <button onclick="document.getElementById('sos-overlay').style.display='none'"
+            style="margin-top: 22px; padding: 15px 40px; font-size: 18px; cursor: pointer; border-radius: 8px; border: none; background: white; font-weight: bold;">
+        DISMISS ALERT
+    </button>
+</div>
+
+<div id="explain-modal" onclick="if(event.target.id==='explain-modal')this.style.display='none'"><div id="explain-card"></div></div>
+<div id="crit-overlay"></div>
+<div id="setup"><div class="card" id="setup-card"></div></div>
+
+<script>
+// ===== PrahaarShield v3 – testing UI logic (your design, wired to the engine) =====
+const VIEW = new URLSearchParams(location.search).get('view') || 'both';      // both | user (phone) | scam (laptop)
+document.body.classList.add('view-' + VIEW);
+const userChat = document.getElementById('userChat'), scamChat = document.getElementById('scamChat');
+const COL = {0:'#9be7a8',1:'#cfd8dc',2:'#ffd54f',3:'#ffa726',4:'#ff5252'};
+const PIL = {P_IDENTITY:'ID',P_SITUATION:'SIT',P_STAKES:'STK',P_CRED:'CRED',P_RESOURCE:'RES',P_CONTROL:'CTRL'};
+const UI = {
+ en:{flag:{2:'Suspicious',3:'Dangerous',4:'Critical'},why:'why?',what:'What is happening',flags:'Red flags',facts:'Good to know',todo:'What to do now',
+     stages:'Where you are in the scam',next:'What usually comes next',checking:'PrahaarShield is checking the whole conversation…',words:'Risky words',
+     img:'🖼 image not scanned yet (text-only version)',doc:'📄 file not scanned yet (text-only version)',stop:'STOP! This looks like a scam in progress',
+     stopTxt:'Do not pay. Do not share OTP / PIN. Disconnect any video call.',see:'See why',dismiss:'Dismiss',full:'🆘 Full SOS check',close:'Close',score:'Scam score'},
+ hi:{flag:{2:'संदिग्ध',3:'ख़तरनाक',4:'गंभीर'},why:'कारण',what:'क्या हो रहा है',flags:'ख़तरे के संकेत',facts:'जानने योग्य',todo:'अभी क्या करें',
+     stages:'स्कैम किस चरण में है',next:'आगे आमतौर पर क्या होता है',checking:'पूरी बातचीत जाँची जा रही है…',words:'ख़तरनाक शब्द',
+     img:'🖼 तस्वीर अभी जाँची नहीं गई (सिर्फ़ टेक्स्ट वर्ज़न)',doc:'📄 फ़ाइल अभी जाँची नहीं गई (सिर्फ़ टेक्स्ट वर्ज़न)',stop:'रुकिए! यह स्कैम हो सकता है',
+     stopTxt:'पैसे न भेजें, OTP/PIN न बताएँ, वीडियो कॉल काट दें।',see:'कारण देखें',dismiss:'बंद करें',full:'🆘 पूरी SOS जाँच',close:'बंद करें',score:'स्कैम स्कोर'},
+ mr:{flag:{2:'संशयास्पद',3:'धोकादायक',4:'गंभीर'},why:'कारण',what:'काय घडत आहे',flags:'धोक्याची लक्षणे',facts:'माहितीसाठी',todo:'आता काय करावे',
+     stages:'स्कॅम कोणत्या टप्प्यावर आहे',next:'पुढे सहसा काय होते',checking:'संपूर्ण संभाषण तपासले जात आहे…',words:'धोकादायक शब्द',
+     img:'🖼 फोटो अजून तपासला नाही (फक्त टेक्स्ट आवृत्ती)',doc:'📄 फाइल अजून तपासली नाही (फक्त टेक्स्ट आवृत्ती)',stop:'थांबा! हा स्कॅम असू शकतो',
+     stopTxt:'पैसे पाठवू नका, OTP/PIN सांगू नका, व्हिडिओ कॉल बंद करा.',see:'कारण पहा',dismiss:'बंद करा',full:'🆘 संपूर्ण SOS तपासणी',close:'बंद करा',score:'स्कॅम स्कोअर'}};
+let LANG = 'en', DEBUG = false, EXPLAIN_ALL = false, SETUP = {}, typingTimers = {}, BLOBS = {};
+document.body.classList.add('nodebug');
+const rendered = new Map();       // message id -> {userDiv, scamDiv}
+const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const U = () => UI[LANG] || UI.en;
+async function api(path, body) {
+  const r = await fetch(path, body === undefined ? {} : {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+  if (!r.ok) throw new Error(await r.text());
+  const ct = r.headers.get('content-type') || ''; return ct.includes('json') ? r.json() : r.text();
+}
+
+// ---------------- setup wizard (wording + order as specified) ----------------
+const STEPS = {
+  lang:     {q:'Choose the language you prefer for this demo session', key:'lang', opts:[['en','English'],['hi','हिंदी'],['mr','मराठी']]},
+  account:  {q:'Account type', key:'account_type', demo:true, opts:[['business','Business'],['fraud','Fraud'],['scam','Scam'],['regional_scam','Regional scam'],['general','General']]},
+  name:     {q:'Chat name and chat type', key:'name'},
+  contacts: {q:'Allow access to saved contacts for better accuracy?', key:'contacts_permission', opts:[[true,'Yes'],[false,'No']]},
+  status:   {q:'This number is', key:'contact_status', opts:[['safe','Safe (saved contact)'],['blocked','Blocked'],['not_saved','Not in contacts']]},
+  number:   {q:"Sender's phone number", key:'number'},
+};
+const ORDER = {both:['lang','account','name','contacts','status','number'], user:['lang','contacts'], scam:['account','name','status','number']};
+let wiz = {steps:[], i:0, vals:{}};
+function openSetup(force) {
+  wiz = {steps: ORDER[VIEW] || ORDER.both, i: 0, vals: {...SETUP}};
+  let done = false; try { done = !!sessionStorage.getItem('ps_setup_' + VIEW); } catch (e) {}
+  if (!force && (done || (VIEW !== 'scam' && SETUP.lang && VIEW === 'user'))) return;
+  document.getElementById('setup').style.display = 'flex'; drawStep();
+}
+function drawStep() {
+  let st = wiz.steps[wiz.i];
+  if (st === 'status' && !wiz.vals.contacts_permission) { wiz.i++; if (wiz.i >= wiz.steps.length) return finishSetup(); st = wiz.steps[wiz.i]; }
+  const S = STEPS[st], v = wiz.vals[S.key], c = document.getElementById('setup-card');
+  let body = '';
+  if (S.opts) body = `<div class="opts">${S.opts.map(([val, lab]) => `<button class="opt ${String(v) === String(val) ? 'sel' : ''}" onclick='pick(${JSON.stringify(val)})'>${esc(lab)}</button>`).join('')}</div>`;
+  if (st === 'name') body = `<input type="text" id="w-name" value="${esc(wiz.vals.name || 'Unknown Person')}" placeholder="e.g. Mahesh, Auntie, Bull Run VIP">
+      <div class="opts">${[['single','Single chat'],['group','Group']].map(([val, lab]) => `<button class="opt ${wiz.vals.chat_type === val ? 'sel' : ''}" onclick="wiz.vals.chat_type='${val}';drawStep()">${lab}</button>`).join('')}</div>`;
+  if (st === 'number') body = `<input type="text" id="w-number" value="${esc(wiz.vals.number || '+91 ')}" placeholder="+91 98XXXXXXXX · +92 … · 1601XXXXXX">`;
+  c.innerHTML = `<h2>${esc(S.q)}</h2><div class="sub">PrahaarShield · demo session setup (${wiz.i + 1}/${wiz.steps.length})</div>${body}
+    ${S.demo ? '<div class="demo-tag">Demo: simulated. In real WhatsApp this comes from its own servers.</div>' : ''}
+    <div class="nav"><button class="back" onclick="wizBack()" ${wiz.i ? '' : 'style="visibility:hidden"'}>Back</button>
+    <span class="dots">${'●'.repeat(wiz.i + 1)}${'○'.repeat(wiz.steps.length - wiz.i - 1)}</span>
+    <button class="next" onclick="wizNext()">${wiz.i === wiz.steps.length - 1 ? 'Start' : 'Next'}</button></div>`;
+}
+function pick(val) { wiz.vals[STEPS[wiz.steps[wiz.i]].key] = val; drawStep(); }
+function wizBack() { wiz.i = Math.max(0, wiz.i - 1); drawStep(); }
+function wizNext() {
+  const st = wiz.steps[wiz.i];
+  if (st === 'name') { wiz.vals.name = (document.getElementById('w-name').value || 'Unknown Person').trim(); wiz.vals.chat_type = wiz.vals.chat_type || 'single'; }
+  if (st === 'number') wiz.vals.number = document.getElementById('w-number').value.trim();
+  if (STEPS[st].opts && wiz.vals[STEPS[st].key] === undefined) return alert('Please choose one option');
+  wiz.i++; if (wiz.i >= wiz.steps.length) finishSetup(); else drawStep();
+}
+async function finishSetup() {
+  document.getElementById('setup').style.display = 'none';
+  try { sessionStorage.setItem('ps_setup_' + VIEW, '1'); } catch (e) {}
+  const v = wiz.vals, body = {};
+  for (const k of ['lang','account_type','name','chat_type','contacts_permission','contact_status','number']) if (v[k] !== undefined && v[k] !== null) body[k] = v[k];
+  await api('/api/sim/setup', body); await loadSession();
+}
+async function editName() {
+  const n = prompt('Chat name (e.g. Mahesh, Auntie, a group name):', SETUP.name || ''); if (!n) return;
+  await api('/api/sim/setup', {name: n}); await loadSession();
+}
+async function cycleLang() { const order = ['en','hi','mr']; await api('/api/sim/setup', {lang: order[(order.indexOf(LANG) + 1) % 3]}); await loadSession(); }
+
+// ---------------- session + rendering ----------------
+async function loadSession(openIfNeeded) {
+  const s = await api('/api/sim/session'); SETUP = s.setup; LANG = SETUP.lang || 'en';
+  document.getElementById('t-lang').innerText = LANG.toUpperCase();
+  document.getElementById('scam-name').innerText = SETUP.name || 'Unknown Person';
+  document.getElementById('scam-avatar').innerHTML = SETUP.chat_type === 'group' ? '<i class="fa-solid fa-users"></i>' : '<i class="fa-solid fa-user-secret"></i>';
+  const acc = {business:'Business',fraud:'Fraud',scam:'Scam',regional_scam:'Regional scam',general:'General'}[SETUP.account_type] || '';
+  const cs = SETUP.contacts_permission ? ({safe:'saved contact',blocked:'blocked',not_saved:'not in contacts'}[SETUP.contact_status] || '') : 'contacts not shared';
+  const meta = document.getElementById('chat-meta'); meta.innerText = ''; meta.style.display = 'none';
+  userChat.innerHTML = ''; scamChat.innerHTML = ''; rendered.clear();
+  s.messages.forEach(renderMessage); updateBanner(s.chat);
+  if (openIfNeeded) openSetup(false);
+}
+function linkify(html) { return html.replace(/(https?:\/\/[^\s<]+)/g, u => `<a href="${u}" target="_blank" style="color:#039be5">${u}</a>`).replace(/\n/g, '<br>'); }
+function markRisky(html, words) {
+  for (const w of (words || [])) {
+    const ew = esc(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); if (ew.length < 2) continue;
+    html = html.replace(new RegExp(`(${ew})(?![^<]*>)`, 'i'), '<mark class="risk">$1</mark>');
+  }
+  return html;
+}
+function bubble(m, isSelf, forUser) {
+  const div = document.createElement('div'); div.className = `message ${isSelf ? 'sent' : 'received'}`;
+  if (m.kind === 'image' && m.content) {
+    const img = document.createElement('img'); img.src = m.content; img.onclick = () => openImage(m.content); div.appendChild(img);
+  } else if (m.kind === 'doc') {
+    const url = BLOBS[m.file_name];
+    div.innerHTML = `<div class="doc-msg" ${url ? `onclick="window.open('${url}', '_blank')"` : ''}><i class="fa-solid fa-file-pdf" style="font-size:24px; color:#727272"></i>
+                     <span style="font-size: 13px;">${esc(m.file_name || 'file')}</span></div>`;
+  } else {
+    let h = esc(m.text);
+    if (forUser && m.explain && m.level >= (EXPLAIN_ALL ? 2 : 3)) h = markRisky(h, m.explain.highlights);
+    div.innerHTML = linkify(h);
+  }
+  return div;
+}
+function renderMessage(m) {
+  if (rendered.has(m.id)) return;
+  const fromScam = m.direction === 'in';
+  const u = bubble(m, !fromScam, true), s = bubble(m, fromScam, false);
+  userChat.appendChild(u); scamChat.appendChild(s); rendered.set(m.id, {userDiv: u, scamDiv: s});
+  if (fromScam) decorate(u, m);
+  userChat.scrollTop = userChat.scrollHeight; scamChat.scrollTop = scamChat.scrollHeight;
+}
+function explainBox(e, lvl) {           // after SOS: plain-language explanation under EVERY message
+  const box = document.createElement('div'); box.className = 'ps-exp'; box.style.borderLeftColor = COL[lvl] || '#9be7a8';
+  box.innerHTML = `<b>${esc(e.label)}${lvl >= 2 && e.scam_type_name ? ' · ' + esc(e.scam_type_name) : ''}</b><div>${esc(e.what)}</div>` +
+    (e.red_flags.length ? `<ul>${e.red_flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : '') +
+    (e.facts.length ? `<div class="fx">${e.facts.map(esc).join(' · ')}</div>` : '');
+  return box;
+}
+function warnBox(e, lvl) {              // before SOS: only Dangerous / Critical messages get a red card inside the chat
+  const T = U(), box = document.createElement('div'); box.className = 'ps-warn';
+  box.innerHTML = `<b>⚠ ${esc(e.label)}${e.scam_type_name ? ' · ' + esc(e.scam_type_name) : ''}</b><div>${esc(e.what)}</div>` +
+    (e.red_flags.length ? `<ul>${e.red_flags.slice(0, 3).map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : '') +
+    `<div style="margin-top:4px">${esc(T.stopTxt)}</div><a href="tel:1930">📞 1930</a><button>${esc(T.full)}</button>`;
+  box.querySelector('button').onclick = () => activateSOS();
+  return box;
+}
+function decorate(div, m) {
+  if (m.kind && m.kind !== 'text') { div.insertAdjacentHTML('beforeend', `<div class="ps-note">${m.kind === 'image' ? U().img : U().doc}</div>`); return; }
+  if (!m.explain) return;
+  if (EXPLAIN_ALL) div.appendChild(explainBox(m.explain, m.level));
+  else if (m.level >= 3) div.appendChild(warnBox(m.explain, m.level));
+  const d = m.debug, saidScam = m.level >= 2;
+  if (d) {                               // technical scores: only with the bug icon (debug mode)
+    const tech = document.createElement('div'); tech.className = 'ps-tech';
+    const ids = (d.identifiers || []).map(i => `${i.type}:${i.risk}`).join(', ');
+    tech.innerHTML = `L${m.level} · p=${d.p_scam.toFixed(2)} · ${esc(d.scam_type)} (${(d.type_conf * 100).toFixed(0)}%) · ${esc(d.language)}${d.reliable ? '' : ' · ⚠ unreliable'}` +
+      `<br>pillars: ${Object.keys(d.pillars).map(k => PIL[k] || k).join('+') || '–'}${d.rules.length ? ' · rules: ' + esc(d.rules.join(',')) : ''}${ids ? ' · ' + esc(ids) : ''}`;
+    div.appendChild(tech);
+  }
+  const fb = document.createElement('div'); fb.className = 'ps-fb';      // tester feedback row: always shown
+  fb.innerHTML = `model says <b>${saidScam ? 'SCAM' : 'SAFE'}</b> <button class="ok">✓ right</button><button class="bad">✗ wrong</button>`;
+  fb.querySelector('.ok').onclick = ev => ev.target.classList.add('done');
+  fb.querySelector('.bad').onclick = async ev => {
+    const note = prompt(`Model said ${saidScam ? 'SCAM' : 'SAFE'}. It should be ${saidScam ? 'SAFE' : 'SCAM'}.\nOptional note (e.g. expected scam type):`, '');
+    if (note === null) return;
+    const res = await api('/api/feedback', {message_id: m.id, expected: saidScam ? 'benign' : 'scam', note});
+    ev.target.classList.add('done'); ev.target.innerText = '✗ logged'; document.getElementById('fb-count').innerText = res.logged;
+  };
+  div.appendChild(fb);
+}
+function addInlineAlert(a) {            // Critical alert: a red card inside the chat (no full-screen popup)
+  const T = U(), card = document.createElement('div'); card.className = 'ps-crit';
+  card.innerHTML = `<div style="font-size:16px;font-weight:700">🚨 ${esc(T.stop)}</div><div style="opacity:.9;margin:4px 0">“${esc(a.text)}”</div>` +
+    `<div>${esc(T.stopTxt)}</div><a href="tel:1930">📞 Call 1930</a><button>${esc(T.see)}</button>`;
+  card.querySelector('button').onclick = () => activateSOS();
+  userChat.appendChild(card); userChat.scrollTop = userChat.scrollHeight;
+}
+function updateBanner(chat) {
+  const b = document.getElementById('chat-banner');
+  if (!chat || chat.level < (EXPLAIN_ALL ? 2 : 3) || chat.muted || !chat.banner) { b.style.display = 'none'; return; }
+  b.innerText = chat.banner; b.style.background = COL[chat.level]; b.className = chat.level >= 4 ? 'lvl4' : ''; b.style.display = 'block';
+  let st = document.getElementById('dbg-chat');
+  if (!st) { st = document.createElement('div'); st.id = 'dbg-chat'; st.className = 'ps-tech'; st.style.cssText = 'padding:2px 15px;background:#fff8e1;margin:0'; b.after(st); }
+  st.innerText = `chat L${chat.level} · stage: ${chat.stage || '–'} · ${chat.conv ? 'M7 p=' + chat.conv.p_scam.toFixed(2) + ' ' + chat.conv.stage : 'M7: rules'} · ${(chat.reasons || []).join(',')}`;
+}
+function showExplain(e) {
+  const T = U();
+  document.getElementById('explain-card').innerHTML = `
+    <span class="ps-lvl" style="background:${COL[e.level]}">${esc(e.label)}${e.scam_type_name ? ' · ' + esc(e.scam_type_name) : ''}</span>
+    <h3>${T.what}</h3><p style="margin:0">${esc(e.what)}</p>
+    ${e.highlights.length ? `<h3>${T.words}</h3><p style="margin:0">${e.highlights.map(w => `<mark class="risk">${esc(w)}</mark>`).join(' ')}</p>` : ''}
+    ${e.red_flags.length ? `<h3>${T.flags}</h3><ul>${e.red_flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
+    ${e.facts.length ? `<h3>${T.facts}</h3><ul class="facts">${e.facts.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
+    <p style="color:#888;font-size:13px;margin-top:12px">${T.score} ${(e.score * 100).toFixed(0)}%</p>
+    <div class="ps-btns"><button class="red" onclick="document.getElementById('explain-modal').style.display='none';activateSOS()">${T.full}</button>
+    <button onclick="document.getElementById('explain-modal').style.display='none'">${T.close}</button></div>`;
+  document.getElementById('explain-modal').style.display = 'flex';
+}
+function showCritical(a) {
+  const el = document.getElementById('crit-overlay'), T = U();
+  el.innerHTML = `<h1 style="font-size:2.6rem;margin:0 0 12px">🚨 ${T.stop}</h1>
+    <p style="font-size:1.1rem;max-width:700px">“${esc(a.text)}”</p><p style="font-size:1.2rem">${T.stopTxt}</p>
+    <div class="ps-btns" style="justify-content:center"><a href="tel:1930" style="background:#fff;color:#b40000;font-weight:bold">📞 Call 1930</a>
+    <button onclick="document.getElementById('crit-overlay').style.display='none';activateSOS()">${T.see}</button>
+    <button onclick="document.getElementById('crit-overlay').style.display='none'">${T.dismiss}</button></div>`;
+  el.style.display = 'flex';
+}
+async function activateSOS() {
+  const T = U();
+  document.getElementById('sos-overlay').style.display = 'flex';
+  if (!EXPLAIN_ALL) { EXPLAIN_ALL = true; loadSession(); }      // from now on every message is explained inside the chat
+  document.getElementById('sos-sub').innerText = T.checking; document.getElementById('sos-body').innerHTML = '';
+  try {
+    const r = await api(`/api/chat/sim/sos?lang=${LANG}`, {});
+    document.getElementById('sos-sub').innerText = `${r.label}${r.scam_type_name && r.level >= 2 ? ' · ' + r.scam_type_name : ''}`;
+    document.getElementById('sos-body').innerHTML = `
+      <h3>${T.what}</h3><p style="margin:0">${esc(r.what)}</p>
+      ${r.timeline.length ? `<h3>${T.stages}</h3>` + r.timeline.map(t => `<div class="tl"><b>${esc(t.name)}</b><br><span style="opacity:.85">“${esc(t.text)}”</span></div>`).join('') : ''}
+      ${r.next_step ? `<h3>${T.next}</h3><p style="margin:0">${esc(r.next_step)}</p>` : ''}
+      ${r.red_flags.length ? `<h3>${T.flags}</h3><ul>${r.red_flags.map(f => `<li>${esc(f.text)}</li>`).join('')}</ul>` : ''}
+      ${r.facts.length ? `<h3>${T.facts}</h3><ul>${r.facts.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
+      <h3>${T.todo}</h3><ul>${r.actions.map(a => `<li>${esc(a)}</li>`).join('')}</ul>`;
+  } catch (e) { document.getElementById('sos-body').innerText = 'Could not reach PrahaarShield server: ' + e.message; }
+}
+async function showEvidence() {
+  const t = await api('/api/chat/sim/evidence'); window._ev = t;
+  document.getElementById('explain-card').innerHTML = `<h3>Evidence pack</h3><pre style="white-space:pre-wrap;font-size:13px;background:#f5f5f5;padding:10px;border-radius:8px">${esc(t)}</pre>
+    <div class="ps-btns"><button onclick="copyEv()">Copy</button><button onclick="document.getElementById('explain-modal').style.display='none'">Close</button></div>`;
+  document.getElementById('explain-modal').style.display = 'flex';
+}
+function copyEv() { const t = window._ev || ''; if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t);
+  const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); } catch (e) {} a.remove(); }
+async function notScam() { await api('/api/sim/not_scam', {}); document.getElementById('sos-overlay').style.display = 'none'; await loadSession(); }
+async function resetChat() { if (!confirm('Clear this test chat? (setup is kept)')) return; EXPLAIN_ALL = false; await api('/api/sim/reset', {}); await loadSession(); }
+function toggleDebug() { DEBUG = !DEBUG; document.body.classList.toggle('nodebug', !DEBUG); document.getElementById('t-debug').classList.toggle('off', !DEBUG); }
+
+// ---------------- your original functions (kept) ----------------
+function openImage(src) { document.getElementById('preview-content').src = src; document.getElementById('img-preview').style.display = 'flex'; }
+function closePreview() { document.getElementById('img-preview').style.display = 'none'; }
+function triggerFile(sender) { document.getElementById(sender + 'FileInput').click(); }
+function handleFile(input, sender) {
+  const file = input.files[0]; if (!file) return;
+  if (file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = e => sendRaw({sender, kind:'image', content:e.target.result, file_name:file.name, text:file.name});
+    reader.readAsDataURL(file);
+  } else {
+    BLOBS[file.name] = URL.createObjectURL(file);
+    sendRaw({sender, kind:'doc', file_name:file.name, text:file.name});
+  }
+  input.value = '';
+}
+function handleTyping(sender) {
+  const el = document.getElementById(sender === 'user' ? 'shyna-status' : 'unknown-status'); el.innerText = 'typing...';
+  clearTimeout(typingTimers[sender]); typingTimers[sender] = setTimeout(() => { el.innerText = 'online'; }, 1500);
+}
+async function send(sender) {
+  const input = document.getElementById(sender === 'user' ? 'userInput' : 'scamInput'); const text = input.value.trim();
+  if (!text) return; input.value = '';
+  document.getElementById(sender === 'user' ? 'shyna-status' : 'unknown-status').innerText = 'online';
+  await sendRaw({sender, text, kind:'text'});
+}
+async function sendRaw(body) {
+  try {
+    const r = await api('/api/sim/send', body);
+    renderMessage(r.message); updateBanner(r.chat);
+    if (r.alert && r.alert.level >= 4 && VIEW !== 'scam') { addInlineAlert(r.alert); showCritical(r.alert); }   // card stays in the chat + full-screen STOP at the critical moment
+  } catch (e) { alert('PrahaarShield server error: ' + e.message.slice(0, 200)); }
+}
+function toggleScammer() {
+  const board = document.getElementById('scamBoard'), icon = document.getElementById('arrow-icon');
+  board.classList.toggle('hidden'); icon.className = board.classList.contains('hidden') ? 'fa-solid fa-caret-right' : 'fa-solid fa-caret-left';
+}
+document.addEventListener('keypress', e => {
+  if (e.key === 'Enter') { if (document.activeElement.id === 'userInput') send('user'); if (document.activeElement.id === 'scamInput') send('scam'); }
+});
+
+// ---------------- live sync between phone (?view=user) and laptop (?view=scam) ----------------
+function connect() {
+  const ws = new WebSocket((location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/ws');
+  ws.onmessage = async ev => {
+    const d = JSON.parse(ev.data); if (d.type !== 'sim') return;
+    if (d.event === 'message') {
+      const fresh = !rendered.has(d.message.id); renderMessage(d.message); updateBanner(d.chat);
+      if (fresh && d.alert && d.alert.level >= 4 && VIEW !== 'scam') { addInlineAlert(d.alert); showCritical(d.alert); }
+    } else { if (d.event === 'reset') EXPLAIN_ALL = false; await loadSession(d.event === 'reset' && d.new_session); }
+  };
+  ws.onclose = () => setTimeout(connect, 1500);
+}
+document.getElementById('t-debug').classList.add('off');
+loadSession(true).then(connect);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrahaarShield · Other-person panel</title>
+<style>
+body{font-family:Segoe UI,Roboto,Arial,sans-serif;background:#f0f2f5;margin:0;padding:20px;color:#111}
+.card{background:#fff;border-radius:12px;padding:18px;max-width:720px;margin:0 auto 16px;box-shadow:0 2px 8px #0001}
+h1{font-size:20px;margin:0 0 4px}h2{font-size:16px;margin:0 0 10px}.sub{color:#667;font-size:13px}
+label{font-size:13px;color:#445;display:block;margin:10px 0 4px}
+select,input,textarea{width:100%;padding:10px;border:1px solid #ccd;border-radius:8px;font-size:15px;box-sizing:border-box}
+textarea{min-height:90px}button{background:#00a884;color:#fff;border:0;border-radius:8px;padding:10px 16px;font-size:15px;cursor:pointer;margin-top:10px}
+.row{display:flex;gap:10px}.row>*{flex:1}.script{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eee}
+#log{font-family:Consolas,monospace;font-size:13px;white-space:pre-wrap;max-height:240px;overflow:auto;background:#0b141a;color:#cfe;padding:10px;border-radius:8px}
+</style></head><body>
+<div class="card"><h1>🎭 Other-person panel (laptop)</h1>
+<div class="sub">Type here as the scammer / friend. Messages appear live on the phone. This panel only sends messages – all checking happens in PrahaarShield.</div></div>
+<div class="card"><h2>Send a message</h2>
+<label>Chat</label><select id="chat" onchange="toggleNew()"></select>
+<div id="newBox" class="row" style="display:none"><div><label>Name shown</label><input id="nName" placeholder="+91 7XXXX XXXXX"></div>
+<div><label>Number</label><input id="nNum" placeholder="+91 7XXXX XXXXX"></div></div>
+<label>Message</label><textarea id="txt" placeholder="Type the message..."></textarea>
+<button onclick="sendOne()">Send ➤</button></div>
+<div class="card"><h2>Play a live demo script</h2><div id="scripts"></div></div>
+<div class="card"><h2>Log</h2><div id="log"></div></div>
+<script>
+const log=t=>{const l=document.getElementById('log');l.textContent=`[${new Date().toLocaleTimeString()}] ${t}\n`+l.textContent;};
+async function api(p,m='GET',b){const r=await fetch(p,{method:m,headers:{'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});if(!r.ok)throw new Error(await r.text());return r.json();}
+async function loadChats(){const s=await api('/api/state');const sel=document.getElementById('chat');const v=sel.value;
+  sel.innerHTML='<option value="__new">➕ New unknown number</option>'+s.chats.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+  if(v)sel.value=v;toggleNew();}
+function toggleNew(){document.getElementById('newBox').style.display=document.getElementById('chat').value==='__new'?'flex':'none';}
+async function send(body){const r=await api('/api/message','POST',body);log(`sent → ${body.text.slice(0,60)}${r.alert?'   ⚠ ALERT '+r.alert.label:''}`);return r;}
+async function sendOne(){const sel=document.getElementById('chat').value;const text=document.getElementById('txt').value.trim();if(!text)return;
+  const body={direction:'in',text};
+  if(sel==='__new'){body.name=document.getElementById('nName').value||document.getElementById('nNum').value||'Unknown';body.number=document.getElementById('nNum').value||null;}
+  else body.chat_id=sel;
+  const r=await send(body);document.getElementById('txt').value='';await loadChats();document.getElementById('chat').value=r.chat_id;toggleNew();}
+async function play(i){const sc=SCRIPTS[i];let cid=sc.chat_id||null;log(`▶ script: ${sc.name}`);
+  for(const t of sc.messages){const body={direction:'in',text:t};if(cid)body.chat_id=cid;else{body.name=sc.chat_name;body.number=sc.number;}
+    const r=await send(body);cid=r.chat_id;await new Promise(res=>setTimeout(res,(sc.delay||4)*1000));}
+  log('■ script finished');loadChats();}
+let SCRIPTS=[];
+(async()=>{SCRIPTS=await api('/api/scripts');document.getElementById('scripts').innerHTML=SCRIPTS.map((s,i)=>
+  `<div class="script"><div><b>${s.name}</b><div class="sub">${s.messages.length} messages · every ${s.delay||4}s</div></div><button onclick="play(${i})">Play</button></div>`).join('');
+  loadChats();})();
+</script></body></html>

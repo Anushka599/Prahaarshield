@@ -1,0 +1,448 @@
+{
+ "levels": {
+  "en": [
+   "Safe",
+   "Caution",
+   "Suspicious",
+   "Dangerous",
+   "Critical"
+  ],
+  "hi": [
+   "सुरक्षित",
+   "सावधानी",
+   "संदिग्ध",
+   "ख़तरनाक",
+   "गंभीर ख़तरा"
+  ],
+  "mr": [
+   "सुरक्षित",
+   "सावधगिरी",
+   "संशयास्पद",
+   "धोकादायक",
+   "गंभीर धोका"
+  ]
+ },
+ "types": {
+  "digital_arrest": {
+   "en": "Digital arrest",
+   "hi": "डिजिटल अरेस्ट",
+   "mr": "डिजिटल अरेस्ट"
+  },
+  "kyc_bank": {
+   "en": "Bank / KYC",
+   "hi": "बैंक / KYC",
+   "mr": "बँक / KYC"
+  },
+  "boss_impersonation": {
+   "en": "Boss impersonation",
+   "hi": "बॉस बनकर धोखा",
+   "mr": "बॉस असल्याचे भासवून फसवणूक"
+  },
+  "investment_group": {
+   "en": "Investment",
+   "hi": "निवेश",
+   "mr": "गुंतवणूक"
+  },
+  "job_task": {
+   "en": "Job / task",
+   "hi": "नौकरी / टास्क",
+   "mr": "नोकरी / टास्क"
+  },
+  "loan_app": {
+   "en": "Loan app",
+   "hi": "लोन ऐप",
+   "mr": "लोन ॲप"
+  }
+ },
+ "what": {
+  "digital_arrest": {
+   "en": "Someone is pretending to be police / CBI / customs and threatening arrest to make you pay. There is no such thing as a 'digital arrest': real police never arrest or take money over video calls.",
+   "hi": "कोई पुलिस / सीबीआई / कस्टम बनकर गिरफ़्तारी का डर दिखा रहा है ताकि आप पैसे भेजें। 'डिजिटल अरेस्ट' जैसा कुछ नहीं होता: असली पुलिस वीडियो कॉल पर न गिरफ़्तार करती है, न पैसे लेती है।",
+   "mr": "कोणीतरी पोलीस / सीबीआय / कस्टम्स असल्याचे भासवून अटकेची भीती दाखवत आहे, जेणेकरून तुम्ही पैसे पाठवाल. 'डिजिटल अरेस्ट' असे काहीही नसते: खरे पोलीस व्हिडिओ कॉलवर अटक करत नाहीत आणि पैसेही घेत नाहीत."
+  },
+  "kyc_bank": {
+   "en": "Someone is pretending to be your bank and using 'KYC / account block' fear to get your details, OTP or a click on a fake link.",
+   "hi": "कोई आपका बैंक बनकर 'KYC / खाता बंद' का डर दिखा रहा है ताकि आपकी जानकारी, OTP या नकली लिंक पर क्लिक ले सके।",
+   "mr": "कोणीतरी तुमची बँक असल्याचे भासवून 'KYC / खाते बंद' होण्याची भीती दाखवत आहे, जेणेकरून तुमची माहिती, OTP किंवा बनावट लिंकवर क्लिक मिळवता येईल."
+  },
+  "boss_impersonation": {
+   "en": "Someone is pretending to be your boss / senior and pushing an urgent, secret payment, gift cards or a file to open.",
+   "hi": "कोई आपका बॉस / सीनियर बनकर जल्दी और गुप्त भुगतान, गिफ्ट कार्ड या कोई फ़ाइल खुलवाना चाहता है।",
+   "mr": "कोणीतरी तुमचा बॉस / वरिष्ठ असल्याचे भासवून तातडीचे आणि गुप्त पेमेंट, गिफ्ट कार्ड किंवा एखादी फाइल उघडायला सांगत आहे."
+  },
+  "investment_group": {
+   "en": "This looks like a fake investment / trading scheme: guaranteed profits, VIP groups, fake apps and 'pay to withdraw'.",
+   "hi": "यह नकली निवेश / ट्रेडिंग स्कीम लगती है: पक्का मुनाफ़ा, VIP ग्रुप, नकली ऐप और 'पैसे निकालने के लिए फीस'।",
+   "mr": "ही बनावट गुंतवणूक / ट्रेडिंग योजना वाटते: खात्रीचा नफा, VIP ग्रुप, बनावट ॲप आणि 'पैसे काढण्यासाठी फी'."
+  },
+  "job_task": {
+   "en": "This looks like a fake job / task scam: easy money for simple tasks, then deposits, fees or documents.",
+   "hi": "यह नकली नौकरी / टास्क स्कैम लगता है: आसान काम का लालच, फिर जमा राशि, फीस या दस्तावेज़ माँगना।",
+   "mr": "हा बनावट नोकरी / टास्क स्कॅम वाटतो: सोप्या कामाचे आमिष, मग डिपॉझिट, फी किंवा कागदपत्रे मागणे."
+  },
+  "loan_app": {
+   "en": "This looks like a fake loan offer: instant approval, then fees before disbursal, app permissions or threats.",
+   "hi": "यह नकली लोन ऑफ़र लगता है: तुरंत मंज़ूरी, फिर पैसे मिलने से पहले फीस, ऐप परमिशन या धमकियाँ।",
+   "mr": "ही बनावट कर्ज ऑफर वाटते: लगेच मंजुरी, मग पैसे मिळण्याआधी फी, ॲप परवानग्या किंवा धमक्या."
+  },
+  "generic": {
+   "en": "This message shows common scam patterns.",
+   "hi": "इस संदेश में आम स्कैम के लक्षण हैं।",
+   "mr": "या संदेशात नेहमीच्या स्कॅमची लक्षणे आहेत."
+  },
+  "safe": {
+   "en": "No strong scam signs found.",
+   "hi": "स्कैम के मज़बूत लक्षण नहीं मिले।",
+   "mr": "स्कॅमची ठोस लक्षणे आढळली नाहीत."
+  },
+  "unreliable": {
+   "en": "Not fully checked: this message is too short or in a language the model does not support.",
+   "hi": "पूरी तरह जाँचा नहीं गया: संदेश बहुत छोटा है या ऐसी भाषा में है जो मॉडल नहीं समझता।",
+   "mr": "पूर्ण तपासले नाही: संदेश खूप लहान आहे किंवा मॉडेलला न समजणाऱ्या भाषेत आहे."
+  }
+ },
+ "pillars": {
+  "P_IDENTITY": {
+   "en": "Claims to be someone trusted or official (bank, police, boss, company)",
+   "hi": "खुद को किसी भरोसेमंद व्यक्ति या संस्था (बैंक, पुलिस, बॉस, कंपनी) का बताता है",
+   "mr": "स्वतःला विश्वासू व्यक्ती किंवा अधिकृत संस्था (बँक, पोलीस, बॉस, कंपनी) असल्याचे सांगतो"
+  },
+  "P_SITUATION": {
+   "en": "Creates a problem or situation that needs you to act",
+   "hi": "कोई समस्या या स्थिति बनाकर आपसे कदम उठवाना चाहता है",
+   "mr": "एखादी समस्या किंवा परिस्थिती निर्माण करून तुम्हाला कृती करायला लावतो"
+  },
+  "P_STAKES": {
+   "en": "Threatens a loss / punishment or promises a big reward",
+   "hi": "नुकसान या सज़ा का डर दिखाता है, या बड़ा इनाम/मुनाफ़ा बताता है",
+   "mr": "नुकसान किंवा शिक्षेची भीती दाखवतो, किंवा मोठे बक्षीस/नफा सांगतो"
+  },
+  "P_CRED": {
+   "en": "Asks for your OTP, PIN, password or card details",
+   "hi": "आपका OTP, PIN, पासवर्ड या कार्ड की जानकारी माँगता है",
+   "mr": "तुमचा OTP, PIN, पासवर्ड किंवा कार्डची माहिती मागतो"
+  },
+  "P_RESOURCE": {
+   "en": "Asks you to pay, click a link, install an app or send documents",
+   "hi": "पैसे भेजने, लिंक खोलने, ऐप डालने या दस्तावेज़ भेजने को कहता है",
+   "mr": "पैसे पाठवायला, लिंक उघडायला, ॲप इन्स्टॉल करायला किंवा कागदपत्रे पाठवायला सांगतो"
+  },
+  "P_CONTROL": {
+   "en": "Pressures you: act now, keep it secret, don't call or tell anyone",
+   "hi": "दबाव बनाता है: तुरंत करो, किसी को मत बताओ, कॉल मत करो",
+   "mr": "दबाव आणतो: लगेच करा, कोणाला सांगू नका, कॉल करू नका"
+  }
+ },
+ "rules": {
+  "cred_ask": {
+   "en": "Asks you to share an OTP / PIN / code",
+   "hi": "OTP / PIN / कोड बताने को कहता है",
+   "mr": "OTP / PIN / कोड सांगायला सांगतो"
+  },
+  "apk": {
+   "en": "Asks you to install an app / screen-share app or open a file",
+   "hi": "कोई ऐप / स्क्रीन-शेयर ऐप इंस्टॉल करने या फ़ाइल खोलने को कहता है",
+   "mr": "एखादे ॲप / स्क्रीन-शेअर ॲप इन्स्टॉल करायला किंवा फाइल उघडायला सांगतो"
+  },
+  "upi_pin_collect": {
+   "en": "Asks you to enter your UPI PIN / approve a request (that SENDS money, it never receives it)",
+   "hi": "UPI PIN डालकर रिक्वेस्ट मंज़ूर करवाना (इससे पैसे जाते हैं, आते नहीं)",
+   "mr": "UPI PIN टाकून विनंती मंजूर करायला सांगतो (यामुळे पैसे जातात, येत नाहीत)"
+  },
+  "gift_codes": {
+   "en": "Asks for gift-card / voucher codes",
+   "hi": "गिफ्ट कार्ड / वाउचर कोड माँगता है",
+   "mr": "गिफ्ट कार्ड / व्हाउचर कोड मागतो"
+  },
+  "safe_account": {
+   "en": "Asks you to move money to a 'safe / verification / RBI' account: no such account exists",
+   "hi": "पैसे 'सुरक्षित / वेरिफिकेशन / RBI' खाते में भेजने को कहता है: ऐसा कोई खाता नहीं होता",
+   "mr": "पैसे 'सुरक्षित / व्हेरिफिकेशन / RBI' खात्यात पाठवायला सांगतो: असे कोणतेही खाते नसते"
+  },
+  "obfuscation": {
+   "en": "Uses disguised / look-alike letters to avoid filters",
+   "hi": "फ़िल्टर से बचने के लिए छुपे / मिलते-जुलते अक्षर इस्तेमाल करता है",
+   "mr": "फिल्टर टाळण्यासाठी लपवलेली / सारखी दिसणारी अक्षरे वापरतो"
+  },
+  "wa_code": {
+   "en": "Asks you to forward a code 'sent by mistake': this is how WhatsApp accounts are hijacked",
+   "hi": "'गलती से भेजा' कोड आगे भेजने को कहता है: इसी तरह व्हाट्सऐप अकाउंट हैक किए जाते हैं",
+   "mr": "'चुकून पाठवलेला' कोड पुढे पाठवायला सांगतो: याच प्रकारे व्हॉट्सॲप अकाउंट हॅक केले जातात"
+  }
+ },
+ "findings": {
+  "registry_hit": {
+   "en": "{value} appears {count} times in the {source} ({scam_type}, last reported {last})",
+   "hi": "{value} {source} में {count} बार दर्ज है ({scam_type}, आख़िरी रिपोर्ट {last})",
+   "mr": "{value} {source} मध्ये {count} वेळा नोंदवले आहे ({scam_type}, शेवटची नोंद {last})"
+  },
+  "contact_blocked": {
+   "en": "You have blocked this number before",
+   "hi": "आपने यह नंबर पहले ब्लॉक किया था",
+   "mr": "तुम्ही हा नंबर आधी ब्लॉक केला होता"
+  },
+  "contact_safe": {
+   "en": "This is a saved contact; but accounts can be hacked, so the message is still checked",
+   "hi": "यह सेव किया हुआ कॉन्टैक्ट है; पर अकाउंट हैक हो सकता है, इसलिए संदेश फिर भी जाँचा गया",
+   "mr": "हा सेव्ह केलेला संपर्क आहे; पण अकाउंट हॅक होऊ शकते, म्हणून संदेश तरीही तपासला"
+  },
+  "contact_unknown": {
+   "en": "This number is not in your contacts",
+   "hi": "यह नंबर आपके कॉन्टैक्ट्स में नहीं है",
+   "mr": "हा नंबर तुमच्या संपर्कांमध्ये नाही"
+  },
+  "helpline": {
+   "en": "{value} is an official helpline ({name})",
+   "hi": "{value} एक आधिकारिक हेल्पलाइन है ({name})",
+   "mr": "{value} ही अधिकृत हेल्पलाइन आहे ({name})"
+  },
+  "intl_number": {
+   "en": "{value} is an international number ({cc}, {country})",
+   "hi": "{value} एक विदेशी नंबर है ({cc}, {country})",
+   "mr": "{value} हा परदेशी नंबर आहे ({cc}, {country})"
+  },
+  "series_1600": {
+   "en": "{value} is from the official 1600 series used for government service calls",
+   "hi": "{value} सरकारी सेवा कॉल के लिए तय 1600 सीरीज़ का नंबर है",
+   "mr": "{value} हा सरकारी सेवा कॉलसाठी असलेल्या अधिकृत 1600 मालिकेतील नंबर आहे"
+  },
+  "series_1601": {
+   "en": "{value} is from the official 1601 series used by banks / financial institutions for service calls",
+   "hi": "{value} बैंकों / वित्तीय संस्थाओं की सेवा कॉल के लिए तय 1601 सीरीज़ का नंबर है",
+   "mr": "{value} हा बँका / वित्तीय संस्थांच्या सेवा कॉलसाठी असलेल्या अधिकृत 1601 मालिकेतील नंबर आहे"
+  },
+  "series_140": {
+   "en": "{value} is a 140-series number (registered promotional / telemarketing calls)",
+   "hi": "{value} 140-सीरीज़ का नंबर है (पंजीकृत प्रचार / टेलीमार्केटिंग कॉल)",
+   "mr": "{value} हा 140-मालिकेतील नंबर आहे (नोंदणीकृत जाहिरात / टेलिमार्केटिंग कॉल)"
+  },
+  "toll_free": {
+   "en": "{value} is a toll-free number",
+   "hi": "{value} टोल-फ़्री नंबर है",
+   "mr": "{value} हा टोल-फ्री नंबर आहे"
+  },
+  "mobile_claims_org": {
+   "en": "The message claims to be a bank / official body, but {value} is an ordinary mobile number (banks use official 1600/1601 numbers for service calls)",
+   "hi": "संदेश खुद को बैंक / सरकारी संस्था बताता है, पर {value} एक साधारण मोबाइल नंबर है (बैंक सेवा कॉल के लिए 1600/1601 नंबर इस्तेमाल करते हैं)",
+   "mr": "संदेश स्वतःला बँक / अधिकृत संस्था असल्याचे सांगतो, पण {value} हा साधा मोबाइल नंबर आहे (बँका सेवा कॉलसाठी 1600/1601 नंबर वापरतात)"
+  },
+  "landline": {
+   "en": "{value} is a landline number",
+   "hi": "{value} लैंडलाइन नंबर है",
+   "mr": "{value} हा लँडलाइन नंबर आहे"
+  },
+  "invalid_number": {
+   "en": "{value} is not a valid Indian phone number format",
+   "hi": "{value} सही भारतीय फ़ोन नंबर फ़ॉर्मेट में नहीं है",
+   "mr": "{value} हा योग्य भारतीय फोन नंबर फॉरमॅट नाही"
+  },
+  "upi_pay_link": {
+   "en": "{value} is a UPI payment link with an amount: opening it starts a payment FROM you",
+   "hi": "{value} राशि वाला UPI पेमेंट लिंक है: इसे खोलने से आपसे पैसे जाते हैं",
+   "mr": "{value} ही रक्कम असलेली UPI पेमेंट लिंक आहे: ती उघडल्यास तुमच्याकडून पैसे जातात"
+  },
+  "upi_bad_format": {
+   "en": "{value} is not a valid UPI ID",
+   "hi": "{value} सही UPI ID नहीं है",
+   "mr": "{value} हा योग्य UPI ID नाही"
+  },
+  "upi_unknown_handle": {
+   "en": "{value} uses an unfamiliar UPI handle ({handle})",
+   "hi": "{value} में अनजान UPI हैंडल ({handle}) है",
+   "mr": "{value} मध्ये अनोळखी UPI हँडल ({handle}) आहे"
+  },
+  "upi_suspicious_words": {
+   "en": "The UPI ID {value} uses words like '{words}': real organisations don't collect payments this way",
+   "hi": "UPI ID {value} में '{words}' जैसे शब्द हैं: असली संस्थाएँ ऐसे पैसे नहीं लेतीं",
+   "mr": "UPI ID {value} मध्ये '{words}' असे शब्द आहेत: खऱ्या संस्था अशा प्रकारे पैसे घेत नाहीत"
+  },
+  "upi_personal_for_org": {
+   "en": "A personal-looking UPI ID ({value}) is given for an 'official' payment",
+   "hi": "'सरकारी/आधिकारिक' भुगतान के लिए निजी जैसा UPI ID ({value}) दिया गया है",
+   "mr": "'अधिकृत' पेमेंटसाठी वैयक्तिक वाटणारा UPI ID ({value}) दिला आहे"
+  },
+  "upi_known_handle": {
+   "en": "{value} uses a known UPI handle ({handle})",
+   "hi": "{value} में जाना-पहचाना UPI हैंडल ({handle}) है",
+   "mr": "{value} मध्ये ओळखीचे UPI हँडल ({handle}) आहे"
+  },
+  "link_official": {
+   "en": "{domain} is an official website",
+   "hi": "{domain} आधिकारिक वेबसाइट है",
+   "mr": "{domain} ही अधिकृत वेबसाइट आहे"
+  },
+  "link_invite": {
+   "en": "{domain}: a WhatsApp/Telegram group invite link",
+   "hi": "{domain}: WhatsApp/Telegram ग्रुप में जोड़ने वाला लिंक",
+   "mr": "{domain}: WhatsApp/Telegram ग्रुपमध्ये जोडणारी लिंक"
+  },
+  "link_shortener": {
+   "en": "{domain} is a link shortener that hides the real website",
+   "hi": "{domain} छोटा किया गया लिंक है जो असली वेबसाइट छुपाता है",
+   "mr": "{domain} ही लहान केलेली लिंक आहे जी खरी वेबसाइट लपवते"
+  },
+  "link_ip": {
+   "en": "The link uses a raw IP address instead of a website name",
+   "hi": "लिंक में वेबसाइट के नाम की जगह IP पता है",
+   "mr": "लिंकमध्ये वेबसाइटच्या नावाऐवजी IP पत्ता आहे"
+  },
+  "link_punycode": {
+   "en": "The link uses disguised characters in the website name",
+   "hi": "लिंक के नाम में छुपे/मिलते-जुलते अक्षर हैं",
+   "mr": "लिंकच्या नावात लपवलेली / सारखी दिसणारी अक्षरे आहेत"
+  },
+  "link_risky_tld": {
+   "en": "The website ending '{tld}' is commonly used by fake sites",
+   "hi": "वेबसाइट का अंत '{tld}' अक्सर नकली साइटों में दिखता है",
+   "mr": "वेबसाइटचा शेवट '{tld}' बनावट साइट्समध्ये नेहमी दिसतो"
+  },
+  "link_apk": {
+   "en": "The link downloads an app or program file (.apk / .exe)",
+   "hi": "लिंक से कोई ऐप या प्रोग्राम फ़ाइल (.apk / .exe) डाउनलोड होती है",
+   "mr": "लिंकवरून एखादे ॲप किंवा प्रोग्राम फाइल (.apk / .exe) डाउनलोड होते"
+  },
+  "link_brand_misuse": {
+   "en": "{domain} uses the name '{brand}' but is NOT its official website",
+   "hi": "{domain} '{brand}' का नाम इस्तेमाल करता है, पर उसकी आधिकारिक वेबसाइट नहीं है",
+   "mr": "{domain} '{brand}' हे नाव वापरते, पण ती त्याची अधिकृत वेबसाइट नाही"
+  },
+  "link_lookalike": {
+   "en": "{domain} looks like '{brand}' with a changed spelling",
+   "hi": "{domain} '{brand}' जैसा दिखता है, पर स्पेलिंग बदली हुई है",
+   "mr": "{domain} '{brand}' सारखे दिसते, पण स्पेलिंग बदललेले आहे"
+  },
+  "link_http": {
+   "en": "The link is not secure (http, not https)",
+   "hi": "लिंक सुरक्षित नहीं है (http, https नहीं)",
+   "mr": "लिंक सुरक्षित नाही (http, https नाही)"
+  },
+  "link_userinfo": {
+   "en": "The link hides its real address using '@'",
+   "hi": "लिंक '@' से अपना असली पता छुपाता है",
+   "mr": "लिंक '@' वापरून खरा पत्ता लपवते"
+  },
+  "link_unknown": {
+   "en": "{domain} is not a known official website: open only if you trust the sender",
+   "hi": "{domain} कोई जानी-पहचानी आधिकारिक वेबसाइट नहीं है: भरोसा हो तभी खोलें",
+   "mr": "{domain} ही ओळखीची अधिकृत वेबसाइट नाही: विश्वास असेल तरच उघडा"
+  }
+ },
+ "context": {
+  "account_scam": {
+   "en": "This account was reported as a scam account",
+   "hi": "यह अकाउंट स्कैम अकाउंट के रूप में रिपोर्ट हुआ है",
+   "mr": "हे अकाउंट स्कॅम अकाउंट म्हणून नोंदवले गेले आहे"
+  },
+  "account_fraud": {
+   "en": "This account was previously reported for fraud",
+   "hi": "यह अकाउंट पहले धोखाधड़ी के लिए रिपोर्ट हुआ है",
+   "mr": "हे अकाउंट आधी फसवणुकीसाठी नोंदवले गेले आहे"
+  },
+  "account_regional_scam": {
+   "en": "This account is linked to a regional scam cluster",
+   "hi": "यह अकाउंट एक क्षेत्रीय स्कैम नेटवर्क से जुड़ा है",
+   "mr": "हे अकाउंट प्रादेशिक स्कॅम नेटवर्कशी जोडलेले आहे"
+  },
+  "account_business_mismatch": {
+   "en": "This business account '{name}' claims to be a different organisation",
+   "hi": "यह बिज़नेस अकाउंट '{name}' किसी दूसरी संस्था का होने का दावा कर रहा है",
+   "mr": "हे बिझनेस अकाउंट '{name}' दुसरी संस्था असल्याचा दावा करत आहे"
+  },
+  "account_business": {
+   "en": "WhatsApp business account",
+   "hi": "WhatsApp बिज़नेस अकाउंट",
+   "mr": "WhatsApp बिझनेस अकाउंट"
+  },
+  "group": {
+   "en": "Group chat: each sender is checked separately",
+   "hi": "ग्रुप चैट: हर भेजने वाले की अलग जाँच होती है",
+   "mr": "ग्रुप चॅट: प्रत्येक पाठवणाऱ्याची वेगळी तपासणी होते"
+  },
+  "victim_action": {
+   "en": "You may already have shared a code or paid. Act now: call 1930 and your bank immediately",
+   "hi": "हो सकता है आपने कोड या पैसे दे दिए हैं। तुरंत 1930 और अपने बैंक को कॉल करें",
+   "mr": "तुम्ही कोड किंवा पैसे दिले असू शकतात. लगेच 1930 आणि तुमच्या बँकेला कॉल करा"
+  }
+ },
+ "stages": {
+  "approach": {
+   "en": "Approach (who they claim to be)",
+   "hi": "संपर्क (खुद को कौन बताया)",
+   "mr": "संपर्क (स्वतःला कोण सांगितले)"
+  },
+  "pressure": {
+   "en": "Pressure (threat / reward / secrecy)",
+   "hi": "दबाव (धमकी / लालच / गोपनीयता)",
+   "mr": "दबाव (धमकी / आमिष / गुप्तता)"
+  },
+  "demand": {
+   "en": "Demand (money / OTP / app / documents)",
+   "hi": "माँग (पैसे / OTP / ऐप / दस्तावेज़)",
+   "mr": "मागणी (पैसे / OTP / ॲप / कागदपत्रे)"
+  }
+ },
+ "next_step": {
+  "en": "Next, they will usually ask for money, an OTP or an app install. Don't do it.",
+  "hi": "अगला कदम आमतौर पर पैसे, OTP या ऐप इंस्टॉल माँगना होता है। ऐसा न करें।",
+  "mr": "पुढची पायरी सहसा पैसे, OTP किंवा ॲप इन्स्टॉल मागणे असते. तसे करू नका."
+ },
+ "actions_type": {
+  "digital_arrest": {
+   "en": "Disconnect the video call. Police never ask you to stay on a call or move money to a 'safe account'.",
+   "hi": "वीडियो कॉल काट दें। पुलिस कभी कॉल पर बने रहने या 'सुरक्षित खाते' में पैसे भेजने को नहीं कहती।",
+   "mr": "व्हिडिओ कॉल बंद करा. पोलीस कधीही कॉलवर राहायला किंवा 'सुरक्षित खात्यात' पैसे पाठवायला सांगत नाहीत."
+  },
+  "kyc_bank": {
+   "en": "Do not open the link. Update KYC only in your bank's official app or branch.",
+   "hi": "लिंक न खोलें। KYC सिर्फ़ बैंक की आधिकारिक ऐप या शाखा में करें।",
+   "mr": "लिंक उघडू नका. KYC फक्त बँकेच्या अधिकृत ॲपमध्ये किंवा शाखेत करा."
+  },
+  "boss_impersonation": {
+   "en": "Call your boss on their old saved number before doing anything. Follow your company's approval process.",
+   "hi": "कुछ भी करने से पहले बॉस को उनके पुराने सेव नंबर पर कॉल करें। कंपनी की अप्रूवल प्रक्रिया अपनाएँ।",
+   "mr": "काहीही करण्याआधी बॉसना त्यांच्या जुन्या सेव्ह केलेल्या नंबरवर कॉल करा. कंपनीची मंजुरी प्रक्रिया पाळा."
+  },
+  "investment_group": {
+   "en": "Never pay 'tax' or 'fees' to withdraw profits. Check advisers on the SEBI website.",
+   "hi": "मुनाफ़ा निकालने के लिए कभी 'टैक्स' या 'फीस' न दें। सलाहकार को SEBI वेबसाइट पर जाँचें।",
+   "mr": "नफा काढण्यासाठी कधीही 'टॅक्स' किंवा 'फी' भरू नका. सल्लागार SEBI वेबसाइटवर तपासा."
+  },
+  "job_task": {
+   "en": "Real jobs never ask you to pay or deposit money.",
+   "hi": "असली नौकरी में कभी पैसे जमा करने को नहीं कहा जाता।",
+   "mr": "खरी नोकरी कधीही पैसे भरायला किंवा जमा करायला सांगत नाही."
+  },
+  "loan_app": {
+   "en": "Real lenders deduct fees from the loan; they never ask you to pay first. Don't install apps from links.",
+   "hi": "असली लोन देने वाले फीस लोन से काटते हैं, पहले पैसे नहीं माँगते। लिंक से ऐप इंस्टॉल न करें।",
+   "mr": "खरे कर्जदाते फी कर्जातूनच कापतात, आधी पैसे मागत नाहीत. लिंकवरून ॲप इन्स्टॉल करू नका."
+  }
+ },
+ "actions_common": [
+  {
+   "en": "Do not pay, and do not share OTP, PIN, passwords or card details.",
+   "hi": "पैसे न भेजें और OTP, PIN, पासवर्ड या कार्ड की जानकारी न दें।",
+   "mr": "पैसे पाठवू नका आणि OTP, PIN, पासवर्ड किंवा कार्डची माहिती देऊ नका."
+  },
+  {
+   "en": "Verify by calling the person / bank on a number YOU already know, not one given in this chat.",
+   "hi": "किसी जाने-पहचाने नंबर पर खुद कॉल करके पुष्टि करें, इस चैट में दिए नंबर पर नहीं।",
+   "mr": "तुम्हाला आधीच माहीत असलेल्या नंबरवर स्वतः कॉल करून खात्री करा, या चॅटमधील नंबरवर नाही."
+  },
+  {
+   "en": "If you lost money, call 1930 immediately or report at cybercrime.gov.in.",
+   "hi": "पैसे गए हों तो तुरंत 1930 पर कॉल करें या cybercrime.gov.in पर शिकायत करें।",
+   "mr": "पैसे गेले असतील तर लगेच 1930 वर कॉल करा किंवा cybercrime.gov.in वर तक्रार करा."
+  },
+  {
+   "en": "Report the number on Sanchar Saathi (Chakshu) and block it on WhatsApp.",
+   "hi": "संचार साथी (चक्षु) पर नंबर की रिपोर्ट करें और WhatsApp पर ब्लॉक करें।",
+   "mr": "संचार साथी (चक्षु) वर नंबरची तक्रार करा आणि WhatsApp वर ब्लॉक करा."
+  }
+ ],
+ "safe_chat": {
+  "en": "No clear scam pattern found in this chat. Stay alert: never share OTP/PIN or pay unknown people.",
+  "hi": "इस चैट में साफ़ स्कैम पैटर्न नहीं मिला। सतर्क रहें: OTP/PIN कभी न दें, अनजान लोगों को पैसे न भेजें।",
+  "mr": "या चॅटमध्ये स्पष्ट स्कॅम पॅटर्न आढळला नाही. सावध रहा: OTP/PIN कधीही देऊ नका, अनोळखी लोकांना पैसे पाठवू नका."
+ }
+}
