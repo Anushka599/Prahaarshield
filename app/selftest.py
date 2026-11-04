@@ -155,7 +155,7 @@ if __name__ == "__main__":
     import io, contextlib
     buf = io.StringIO()
     class Tee(io.TextIOBase):
-        def write(self, s): sys.__stdout__.write(s); buf.write(s); return len(s)
+        def write(self, s): sys.__stdout__.write(s.encode(sys.__stdout__.encoding, errors="replace").decode(sys.__stdout__.encoding)); buf.write(s); return len(s)
     with contextlib.redirect_stdout(Tee()):
         main()
     (HERE / "eval" / "selftest_report.md").write_text("```\n" + buf.getvalue() + "\n```", encoding="utf-8")
